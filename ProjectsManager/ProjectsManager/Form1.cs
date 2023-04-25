@@ -18,17 +18,19 @@ namespace ProjectsManager
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!";
+            connString = "";
             try
             {
                 conn = new MySqlConnection();
                 conn.ConnectionString = connString;
                 conn.Open();
                 MessageBox.Show("Connection successfull");
+                conn.Close();
             }
             catch (Exception ex)
             {
