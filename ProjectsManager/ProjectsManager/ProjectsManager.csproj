@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomComponents\CustomTextbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomComponents\CustomTextbox.Designer.cs">
+      <DependentUpon>CustomTextbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,9 @@
     <Compile Include="LoginHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CustomComponents\CustomTextbox.resx">
+      <DependentUpon>CustomTextbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
