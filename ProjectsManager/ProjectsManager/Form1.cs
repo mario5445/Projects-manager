@@ -23,7 +23,7 @@ namespace ProjectsManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            connString = "";
+            connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!";
             try
             {
                 conn = new MySqlConnection();
@@ -37,6 +37,18 @@ namespace ProjectsManager
                 MessageBox.Show("Error when connecting to database");
                 Environment.Exit(1);
             }
+        }
+
+        private void signInBtn_Click(object sender, EventArgs e)
+        {
+            if (usernameTextbox.Text == string.Empty || passwordTextbox.Text == string.Empty)
+            {
+                return;
+            }
+
+            LoginHandler loginHandler = new LoginHandler(usernameTextbox.Text.Trim(), passwordTextbox.Text.Trim());
+            loginHandler.ValidateLogin();
+
         }
     }
 }

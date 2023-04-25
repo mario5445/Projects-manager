@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LoginLabel = new System.Windows.Forms.Label();
-            this.TextLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TextLabel = new System.Windows.Forms.Label();
+            this.LoginLabel = new System.Windows.Forms.Label();
             this.usernameTextbox = new System.Windows.Forms.TextBox();
             this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.signInBtn = new System.Windows.Forms.Button();
@@ -52,28 +52,13 @@
             this.panel1.Size = new System.Drawing.Size(370, 462);
             this.panel1.TabIndex = 0;
             // 
-            // LoginLabel
+            // pictureBox1
             // 
-            this.LoginLabel.AutoSize = true;
-            this.LoginLabel.Font = new System.Drawing.Font("Cambria", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LoginLabel.ForeColor = System.Drawing.Color.Indigo;
-            this.LoginLabel.Location = new System.Drawing.Point(486, 30);
-            this.LoginLabel.Name = "LoginLabel";
-            this.LoginLabel.Padding = new System.Windows.Forms.Padding(3);
-            this.LoginLabel.Size = new System.Drawing.Size(201, 85);
-            this.LoginLabel.TabIndex = 1;
-            this.LoginLabel.Text = "Login";
-            // 
-            // TextLabel
-            // 
-            this.TextLabel.AutoSize = true;
-            this.TextLabel.Font = new System.Drawing.Font("Cambria", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TextLabel.ForeColor = System.Drawing.Color.White;
-            this.TextLabel.Location = new System.Drawing.Point(17, 246);
-            this.TextLabel.Name = "TextLabel";
-            this.TextLabel.Size = new System.Drawing.Size(352, 64);
-            this.TextLabel.TabIndex = 0;
-            this.TextLabel.Text = "Vitajte v systéme na správu \r\nročníkových projektov!";
+            this.pictureBox1.Location = new System.Drawing.Point(62, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 179);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -86,13 +71,28 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Pre pokračovanie sa prosím prihláste ";
             // 
-            // pictureBox1
+            // TextLabel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(62, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 179);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.TextLabel.AutoSize = true;
+            this.TextLabel.Font = new System.Drawing.Font("Cambria", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TextLabel.ForeColor = System.Drawing.Color.White;
+            this.TextLabel.Location = new System.Drawing.Point(17, 246);
+            this.TextLabel.Name = "TextLabel";
+            this.TextLabel.Size = new System.Drawing.Size(352, 64);
+            this.TextLabel.TabIndex = 0;
+            this.TextLabel.Text = "Vitajte v systéme na správu \r\nročníkových projektov!";
+            // 
+            // LoginLabel
+            // 
+            this.LoginLabel.AutoSize = true;
+            this.LoginLabel.Font = new System.Drawing.Font("Cambria", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LoginLabel.ForeColor = System.Drawing.Color.Indigo;
+            this.LoginLabel.Location = new System.Drawing.Point(486, 30);
+            this.LoginLabel.Name = "LoginLabel";
+            this.LoginLabel.Padding = new System.Windows.Forms.Padding(3);
+            this.LoginLabel.Size = new System.Drawing.Size(201, 85);
+            this.LoginLabel.TabIndex = 1;
+            this.LoginLabel.Text = "Login";
             // 
             // usernameTextbox
             // 
@@ -122,6 +122,7 @@
             this.signInBtn.TabIndex = 3;
             this.signInBtn.Text = "Prihlásiť";
             this.signInBtn.UseVisualStyleBackColor = true;
+            this.signInBtn.Click += new System.EventHandler(this.signInBtn_Click);
             // 
             // checkBox1
             // 
