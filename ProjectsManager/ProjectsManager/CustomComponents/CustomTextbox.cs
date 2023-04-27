@@ -17,6 +17,7 @@ namespace ProjectsManager.CustomComponents
         public event EventHandler _TextChanged;
         #region Fields
 
+        private Color reserveColor = Color.Black;
         private Color borderColor = Color.DarkGray;
         private int borderSize = 2;
         private Color borderFocusColor = Color.Indigo;
@@ -77,7 +78,7 @@ namespace ProjectsManager.CustomComponents
 
         public override Color BackColor { get => base.BackColor; set { base.BackColor = value; textBox1.BackColor = value; } }
 
-        public override Color ForeColor { get => base.ForeColor; set { base.ForeColor = value; textBox1.ForeColor = value; } }
+        public override Color ForeColor { get => base.ForeColor; set { base.ForeColor = value; textBox1.ForeColor = value; reserveColor = value; } }
  
         public override Font Font
         {
@@ -131,7 +132,7 @@ namespace ProjectsManager.CustomComponents
             {
                 isPlaceholder = false;
                 textBox1.Text = "";
-                textBox1.ForeColor = this.ForeColor;
+                textBox1.ForeColor = reserveColor;
                 if (PasswordChar)
                 {
                     textBox1.UseSystemPasswordChar = true;
@@ -144,7 +145,14 @@ namespace ProjectsManager.CustomComponents
             base.OnPaint(e);
             Graphics graph = e.Graphics;
             textBox1.BackColor = this.BackColor;
-            textBox1.ForeColor = this.ForeColor;
+            if (isPlaceholder)
+            {
+                textBox1.ForeColor = PlaceholderColor;
+            }
+            else
+            {
+                textBox1.ForeColor = this.ForeColor;
+            }
             using (Pen penBorder = new Pen(borderColor, borderSize))
             {
                 penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;

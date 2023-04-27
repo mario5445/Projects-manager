@@ -39,6 +39,7 @@
             this.errorLabel = new System.Windows.Forms.Label();
             this.passwordTextbox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.emailTextbox = new ProjectsManager.CustomComponents.CustomTextbox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,9 +50,10 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TextLabel);
-            this.panel1.Location = new System.Drawing.Point(-5, -5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 462);
+            this.panel1.Size = new System.Drawing.Size(370, 450);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -103,6 +105,7 @@
             // signInBtn
             // 
             this.signInBtn.BackColor = System.Drawing.Color.Indigo;
+            this.signInBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signInBtn.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.signInBtn.ForeColor = System.Drawing.Color.White;
             this.signInBtn.Location = new System.Drawing.Point(500, 360);
@@ -143,7 +146,7 @@
             this.passwordTextbox.BorderFocusColor = System.Drawing.Color.Indigo;
             this.passwordTextbox.BorderSize = 1;
             this.passwordTextbox.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordTextbox.ForeColor = System.Drawing.Color.DimGray;
+            this.passwordTextbox.ForeColor = System.Drawing.Color.Indigo;
             this.passwordTextbox.Location = new System.Drawing.Point(388, 214);
             this.passwordTextbox.MinimumSize = new System.Drawing.Size(0, 22);
             this.passwordTextbox.Multiline = false;
@@ -164,7 +167,7 @@
             this.emailTextbox.BorderFocusColor = System.Drawing.Color.Indigo;
             this.emailTextbox.BorderSize = 1;
             this.emailTextbox.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.emailTextbox.ForeColor = System.Drawing.Color.DimGray;
+            this.emailTextbox.ForeColor = System.Drawing.Color.Indigo;
             this.emailTextbox.Location = new System.Drawing.Point(388, 145);
             this.emailTextbox.MinimumSize = new System.Drawing.Size(0, 22);
             this.emailTextbox.Multiline = false;
@@ -178,11 +181,18 @@
             this.emailTextbox.Texts = "";
             this.emailTextbox.UnderlinedStyle = false;
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(353, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(447, 450);
+            this.panel2.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.passwordTextbox);
@@ -192,8 +202,10 @@
             this.Controls.Add(this.signInBtn);
             this.Controls.Add(this.LoginLabel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -217,6 +229,7 @@
         private System.Windows.Forms.Label errorLabel;
         private CustomComponents.CustomTextbox emailTextbox;
         private CustomComponents.CustomTextbox passwordTextbox;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

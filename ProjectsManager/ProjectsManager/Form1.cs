@@ -23,18 +23,18 @@ namespace ProjectsManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            conn = connection();
+            connect();
         }
 
         private void signInBtn_Click(object sender, EventArgs e)
         {
-            if (emailTextbox.Text == string.Empty || passwordTextbox.Text == string.Empty)
+            if (emailTextbox.Texts.Trim() == string.Empty || passwordTextbox.Texts.Trim() == string.Empty)
             {
                 return;
             }
 
             LoginHandler loginHandler = new LoginHandler(emailTextbox.Texts.Trim(), passwordTextbox.Texts.Trim());
-            int? result = loginHandler.ValidateLogin(conn);
+            int? result = loginHandler.ValidateLogin();
             if (result.HasValue)
             {
                 errorLabel.Text = "";
@@ -49,7 +49,7 @@ namespace ProjectsManager
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (passwordTextbox.PlaceholderText != string.Empty && passwordTextbox.Texts == string.Empty)
+            if (passwordTextbox.PlaceholderText.Trim() != string.Empty && passwordTextbox.Texts.Trim() == string.Empty)
             {
                 return;
             }
@@ -58,8 +58,8 @@ namespace ProjectsManager
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            conn.Close();
-            conn.Dispose();
+            DB.connection.Close();
+            DB.connection.Dispose();
         }
     }
 }

@@ -19,10 +19,10 @@ namespace ProjectsManager
             this.password = password;
         }
 
-        public int? ValidateLogin(MySqlConnection conn)
+        public int? ValidateLogin()
         {
             var query = "SELECT id, email, password FROM users WHERE email = @Name";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
             cmd.Parameters.AddWithValue("@Name", username);
             MySqlDataReader reader = cmd.ExecuteReader();
             int id = 0;

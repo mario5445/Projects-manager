@@ -10,9 +10,9 @@ namespace ProjectsManager
 {
     public static class DB
     {
-        public static string connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!";
-
-        public static MySqlConnection connection() 
+        private static string connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!";
+        public static MySqlConnection connection { get; set; }
+        public static void connect() 
         {
             var conn = new MySqlConnection();
             try
@@ -27,7 +27,7 @@ namespace ProjectsManager
                 conn.Dispose();
                 Application.Exit();
             }
-            return conn;
+            connection = conn;
         }
     }
 }
