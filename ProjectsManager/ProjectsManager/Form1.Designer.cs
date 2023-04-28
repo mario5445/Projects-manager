@@ -154,7 +154,7 @@
             this.passwordTextbox.Padding = new System.Windows.Forms.Padding(7);
             this.passwordTextbox.PasswordChar = true;
             this.passwordTextbox.PlaceholderColor = System.Drawing.Color.Gray;
-            this.passwordTextbox.PlaceholderText = "Password";
+            this.passwordTextbox.PlaceholderText = "Heslo";
             this.passwordTextbox.Size = new System.Drawing.Size(388, 35);
             this.passwordTextbox.TabIndex = 7;
             this.passwordTextbox.Texts = "";
@@ -203,6 +203,7 @@
             this.Controls.Add(this.LoginLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

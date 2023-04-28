@@ -38,12 +38,12 @@ namespace ProjectsManager
             if (result.HasValue)
             {
                 errorLabel.Text = "";
-                MessageBox.Show("Login successfull");
+                MessageBox.Show("Ste úspšne prihlasený");
             }
             else
             {
                 errorLabel.ForeColor = Color.Red;
-                errorLabel.Text = "Incorrect password or email";
+                errorLabel.Text = "Nesprávne heslo alebo email";
             }
         }
 
