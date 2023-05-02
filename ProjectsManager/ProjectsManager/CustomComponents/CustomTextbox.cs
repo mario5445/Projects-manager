@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectsManager.CustomComponents
 {
-    [DefaultEvent("_TextChanged")]
+    [DefaultEvent("_TextChanged")] // nastavenie defaultneho eventu pri dvojkliku v dizajneri na komponent
     public partial class CustomTextbox : UserControl
     {
 
@@ -30,13 +25,14 @@ namespace ProjectsManager.CustomComponents
         private Color backColor = Color.White;
         #endregion
 
+        #region Constructor
         public CustomTextbox()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region Properties
-
         public Color BorderColor { get => borderColor; set { borderColor = value; this.Invalidate(); } }
 
         public int BorderSize { get => borderSize; set { borderSize = value; this.Invalidate(); } }

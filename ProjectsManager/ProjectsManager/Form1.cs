@@ -1,49 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using static ProjectsManager.DB;
+
 
 namespace ProjectsManager
 {
     public partial class Form1 : Form
     {
-        MySqlConnection conn;
-        string connString;
+        #region Constructor
         public Form1()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void Form1_Load(object sender, EventArgs e)
         {
-            connect();
+            DB.connect(); // pripojenie sa do databazy
         }
 
         private void signInBtn_Click(object sender, EventArgs e)
         {
-            if (emailTextbox.Texts.Trim() == string.Empty || passwordTextbox.Texts.Trim() == string.Empty)
+            if (emailTextbox.Texts.Trim() == string.Empty || passwordTextbox.Texts.Trim() == string.Empty) // overenie ci textboxy nie su prazdne
             {
                 return;
             }
 
-            LoginHandler loginHandler = new LoginHandler(emailTextbox.Texts.Trim(), passwordTextbox.Texts.Trim());
-            int? result = loginHandler.ValidateLogin();
-            if (result.HasValue)
+            LoginHandler loginHandler = new LoginHandler(emailTextbox.Texts.Trim(), passwordTextbox.Texts.Trim()); // vytvorenie instancie objektu
+            int? result = loginHandler.ValidateLogin(); // validovanie loginu a ulozenie vysledku do premennej
+            if (result.HasValue) // kontrola ci vysledok nie je null
             {
-                errorLabel.Text = "";
+                errorLabel.Text = ""; // vymazanie textu chybovej hlasky
                 MessageBox.Show("Ste úspšne prihlasený");
             }
             else
             {
-                errorLabel.ForeColor = Color.Red;
-                errorLabel.Text = "Nesprávne heslo alebo email";
+                errorLabel.ForeColor = Color.Red; // nastavenie farby textu chybovej hlasky
+                errorLabel.Text = "Nesprávne heslo alebo email"; // nastavenie textu chybovej hlasky
             }
         }
 
@@ -53,13 +47,14 @@ namespace ProjectsManager
             {
                 return;
             }
-            passwordTextbox.PasswordChar = checkBox1.Checked ? false : true;
+            passwordTextbox.PasswordChar = checkBox1.Checked ? false : true; // zobrazenie hesla v citatelnej forme alebo v gulickach
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DB.connection.Close();
-            DB.connection.Dispose();
+            DB.connection.Close(); // odpojenie od databazy
+            DB.connection.Dispose(); 
         }
+        #endregion
     }
 }

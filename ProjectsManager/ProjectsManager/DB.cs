@@ -1,33 +1,42 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectsManager
 {
     public static class DB
     {
-        private static string connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!";
-        public static MySqlConnection connection { get; set; }
-        public static void connect() 
+        #region Fields
+        private static string connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!"; // connection string
+
+        #endregion
+
+        #region Properties
+        public static MySqlConnection connection { get; private set; } // property pre pripojenie 
+
+        #endregion
+
+        #region Methods
+        /// <summary>
+        /// Connects to database
+        /// </summary>
+        public static void connect()
         {
-            var conn = new MySqlConnection();
+            MySqlConnection conn = new MySqlConnection(); // novy connection
             try
             {
-                conn.ConnectionString = connString;
-                conn.Open();
+                conn.ConnectionString = connString; // pripojenie connection stringu k MySqlConnection
+                conn.Open(); // pripojenie sa
             }
-            catch (Exception ex)
+            catch (Exception ex) // zachytenie erroru
             {
-                MessageBox.Show("Error when connecting to database");
-                conn.Close();
+                MessageBox.Show("Error when connecting to database"); // chybova hlaska
+                conn.Close(); // odpojenie sa
                 conn.Dispose();
-                Application.Exit();
+                Application.Exit(); // opustenie aplikacie
             }
-            connection = conn;
+            connection = conn; // priradenie pripojenia do property
         }
+        #endregion
     }
 }
