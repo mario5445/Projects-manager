@@ -18,6 +18,7 @@ namespace ProjectsManager
         private void Form1_Load(object sender, EventArgs e)
         {
             DB.connect(); // pripojenie sa do databazy
+            
         }
 
         private void signInBtn_Click(object sender, EventArgs e)

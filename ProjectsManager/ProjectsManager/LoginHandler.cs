@@ -26,7 +26,7 @@ namespace ProjectsManager
         /// <returns>ID of user or null</returns>
         public int? ValidateLogin() // int? -> moze vratit aj null
         {
-            string query = "SELECT id, email, password FROM users WHERE email = @Name"; // sql query
+            string query = "SELECT user_id, user_email, user_password FROM users WHERE user_email = @Name"; // sql query
             MySqlCommand cmd = new MySqlCommand(query, DB.connection); // novy command
             cmd.Parameters.AddWithValue("@Name", username); // sql injection
             MySqlDataReader reader = cmd.ExecuteReader(); // citac dat
@@ -39,8 +39,8 @@ namespace ProjectsManager
             }
             while (reader.Read()) // citanie dat
             {
-                id = reader.GetInt32("id"); // priradenie do premennej podla nazvu stlpca
-                pass = reader.GetString("password");
+                id = reader.GetInt32("user_id"); // priradenie do premennej podla nazvu stlpca
+                pass = reader.GetString("user_password");
             }
             if (pass == password) // kontrola ci sa heslo v databaze zhoduje so zadanym heslom
             {
