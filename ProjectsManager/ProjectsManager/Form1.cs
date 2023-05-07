@@ -18,7 +18,6 @@ namespace ProjectsManager
         private void Form1_Load(object sender, EventArgs e)
         {
             DB.connect(); // pripojenie sa do databazy
-            
         }
 
         private void signInBtn_Click(object sender, EventArgs e)
@@ -33,7 +32,10 @@ namespace ProjectsManager
             if (result.HasValue) // kontrola ci vysledok nie je null
             {
                 errorLabel.Text = ""; // vymazanie textu chybovej hlasky
-                MessageBox.Show("Ste úspšne prihlasený");
+                MainForm mainForm = new MainForm();
+                this.Hide();
+                mainForm.Show();
+                mainForm.FormClosed += (s, d) => this.Close();
             }
             else
             {

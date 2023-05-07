@@ -37,3 +37,7 @@ C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.pdb
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.CustomComponents.CustomTextbox.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.MainForm.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Oznamenia.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Prehlad.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Profil.resources

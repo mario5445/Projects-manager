@@ -60,7 +60,7 @@
             // iconPictureBox1
             // 
             this.iconPictureBox1.BackColor = System.Drawing.Color.Indigo;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.GraduationCap;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.School;
             this.iconPictureBox1.IconColor = System.Drawing.Color.White;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox1.IconSize = 150;
