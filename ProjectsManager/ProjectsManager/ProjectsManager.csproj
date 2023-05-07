@@ -107,6 +107,30 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginHandler.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Oznamenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Oznamenia.Designer.cs">
+      <DependentUpon>Oznamenia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prehlad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prehlad.Designer.cs">
+      <DependentUpon>Prehlad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profil.Designer.cs">
+      <DependentUpon>Profil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CustomComponents\CustomTextbox.resx">
@@ -114,6 +138,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Oznamenia.resx">
+      <DependentUpon>Oznamenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prehlad.resx">
+      <DependentUpon>Prehlad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profil.resx">
+      <DependentUpon>Profil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
