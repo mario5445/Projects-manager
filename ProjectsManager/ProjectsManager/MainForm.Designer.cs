@@ -36,8 +36,12 @@
             this.btndashboard = new FontAwesome.Sharp.IconButton();
             this.panelheader = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.TextLabel = new System.Windows.Forms.Label();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.panelside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.mainpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelside
@@ -66,10 +70,12 @@
             this.iconPictureBox1.Size = new System.Drawing.Size(100, 100);
             this.iconPictureBox1.TabIndex = 7;
             this.iconPictureBox1.TabStop = false;
+            this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
             // 
             // btntemporary
             // 
             this.btntemporary.BackColor = System.Drawing.Color.Transparent;
+            this.btntemporary.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntemporary.FlatAppearance.BorderSize = 0;
             this.btntemporary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btntemporary.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -90,6 +96,7 @@
             // btnreports
             // 
             this.btnreports.BackColor = System.Drawing.Color.Transparent;
+            this.btnreports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnreports.FlatAppearance.BorderSize = 0;
             this.btnreports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnreports.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
@@ -110,6 +117,7 @@
             // btnprofile
             // 
             this.btnprofile.BackColor = System.Drawing.Color.Transparent;
+            this.btnprofile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnprofile.FlatAppearance.BorderSize = 0;
             this.btnprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnprofile.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
@@ -130,6 +138,7 @@
             // btndashboard
             // 
             this.btndashboard.BackColor = System.Drawing.Color.Transparent;
+            this.btndashboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btndashboard.FlatAppearance.BorderSize = 0;
             this.btndashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndashboard.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
@@ -147,6 +156,8 @@
             this.btndashboard.Text = "Prehľad";
             this.btndashboard.UseVisualStyleBackColor = false;
             this.btndashboard.Click += new System.EventHandler(this.btndashboard_Click);
+            this.btndashboard.MouseLeave += new System.EventHandler(this.btndashboard_MouseLeave);
+            this.btndashboard.MouseHover += new System.EventHandler(this.btndashboard_MouseHover);
             // 
             // panelheader
             // 
@@ -159,11 +170,43 @@
             // 
             // mainpanel
             // 
+            this.mainpanel.Controls.Add(this.iconPictureBox2);
+            this.mainpanel.Controls.Add(this.TextLabel);
             this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainpanel.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mainpanel.Location = new System.Drawing.Point(200, 30);
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(961, 599);
             this.mainpanel.TabIndex = 2;
+            // 
+            // TextLabel
+            // 
+            this.TextLabel.AutoSize = true;
+            this.TextLabel.Font = new System.Drawing.Font("Cambria", 40F, System.Drawing.FontStyle.Bold);
+            this.TextLabel.ForeColor = System.Drawing.Color.Black;
+            this.TextLabel.Location = new System.Drawing.Point(3, 483);
+            this.TextLabel.Name = "TextLabel";
+            this.TextLabel.Size = new System.Drawing.Size(459, 63);
+            this.TextLabel.TabIndex = 2;
+            this.TextLabel.Text = "Vitajte v systéme ";
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconPictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.React;
+            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox2.IconSize = 365;
+            this.iconPictureBox2.Location = new System.Drawing.Point(298, 52);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(376, 365);
+            this.iconPictureBox2.TabIndex = 3;
+            this.iconPictureBox2.TabStop = false;
+            this.iconPictureBox2.Click += new System.EventHandler(this.iconPictureBox2_Click);
             // 
             // MainForm
             // 
@@ -173,12 +216,17 @@
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.panelside);
             this.Controls.Add(this.panelheader);
+            this.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.panelside.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            this.mainpanel.ResumeLayout(false);
+            this.mainpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -193,5 +241,7 @@
         private FontAwesome.Sharp.IconButton btnprofile;
         private FontAwesome.Sharp.IconButton btndashboard;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private System.Windows.Forms.Label TextLabel;
     }
 }

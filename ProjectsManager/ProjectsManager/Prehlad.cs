@@ -26,6 +26,8 @@ namespace ProjectsManager
 
         private void Prehlad_Load(object sender, EventArgs e)
         {
+            maindatagridview.ColumnHeadersDefaultCellStyle.Font = new Font("Cambria", 15F, FontStyle.Bold);
+            maindatagridview.DefaultCellStyle.Font = new Font("Cambria", 10F, FontStyle.Bold);
             foreach (DataGridViewRow row in maindatagridview.Rows)
             {
                 var cell = row.Cells[6];
