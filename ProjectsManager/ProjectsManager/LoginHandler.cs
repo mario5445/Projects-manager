@@ -9,6 +9,7 @@ namespace ProjectsManager
         private string user_email { get; set; }
         private string password { get; set; }
         public string username { get; private set; }
+        public string user_role { get; private set; }
 
         #endregion
 
@@ -27,7 +28,7 @@ namespace ProjectsManager
         /// <returns>ID of user or null</returns>
         public int? ValidateLogin() // int? -> moze vratit aj null
         {
-            string query = "SELECT user_id, user_email, user_password, user_full_name FROM users WHERE user_email = @Name"; // sql query
+            string query = "SELECT user_id, user_email, user_password, user_full_name, user_role FROM users WHERE user_email = @Name"; // sql query
             MySqlCommand cmd = new MySqlCommand(query, DB.connection); // novy command
             cmd.Parameters.AddWithValue("@Name", user_email); // sql injection
             MySqlDataReader reader = cmd.ExecuteReader(); // citac dat
@@ -43,6 +44,7 @@ namespace ProjectsManager
                 id = reader.GetInt32("user_id"); // priradenie do premennej podla nazvu stlpca
                 pass = reader.GetString("user_password");
                 this.username = reader.GetString("user_full_name");
+                this.user_role = reader.GetString("user_role");
             }
             if (pass == password) // kontrola ci sa heslo v databaze zhoduje so zadanym heslom
             {

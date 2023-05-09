@@ -36,8 +36,8 @@
             this.btndashboard = new FontAwesome.Sharp.IconButton();
             this.panelheader = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.TextLabel = new System.Windows.Forms.Label();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.TextLabel = new System.Windows.Forms.Label();
             this.panelside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.mainpanel.SuspendLayout();
@@ -179,17 +179,6 @@
             this.mainpanel.Size = new System.Drawing.Size(961, 599);
             this.mainpanel.TabIndex = 2;
             // 
-            // TextLabel
-            // 
-            this.TextLabel.AutoSize = true;
-            this.TextLabel.Font = new System.Drawing.Font("Cambria", 40F, System.Drawing.FontStyle.Bold);
-            this.TextLabel.ForeColor = System.Drawing.Color.Black;
-            this.TextLabel.Location = new System.Drawing.Point(3, 483);
-            this.TextLabel.Name = "TextLabel";
-            this.TextLabel.Size = new System.Drawing.Size(459, 63);
-            this.TextLabel.TabIndex = 2;
-            this.TextLabel.Text = "Vitajte v systéme ";
-            // 
             // iconPictureBox2
             // 
             this.iconPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -208,6 +197,17 @@
             this.iconPictureBox2.TabStop = false;
             this.iconPictureBox2.Click += new System.EventHandler(this.iconPictureBox2_Click);
             // 
+            // TextLabel
+            // 
+            this.TextLabel.AutoSize = true;
+            this.TextLabel.Font = new System.Drawing.Font("Cambria", 40F, System.Drawing.FontStyle.Bold);
+            this.TextLabel.ForeColor = System.Drawing.Color.Black;
+            this.TextLabel.Location = new System.Drawing.Point(25, 485);
+            this.TextLabel.Name = "TextLabel";
+            this.TextLabel.Size = new System.Drawing.Size(459, 63);
+            this.TextLabel.TabIndex = 2;
+            this.TextLabel.Text = "Vitajte v systéme ";
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -221,7 +221,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "Hlavné menu";
             this.panelside.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.mainpanel.ResumeLayout(false);

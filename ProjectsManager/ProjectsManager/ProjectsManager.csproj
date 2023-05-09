@@ -99,6 +99,7 @@
     <Compile Include="CustomComponents\CustomTextbox.Designer.cs">
       <DependentUpon>CustomTextbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatagridviewHandler.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -118,6 +119,12 @@
     </Compile>
     <Compile Include="Oznamenia.Designer.cs">
       <DependentUpon>Oznamenia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceholderFormForMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaceholderFormForMainForm.Designer.cs">
+      <DependentUpon>PlaceholderFormForMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Prehlad.cs">
       <SubType>Form</SubType>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Oznamenia.resx">
       <DependentUpon>Oznamenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaceholderFormForMainForm.resx">
+      <DependentUpon>PlaceholderFormForMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prehlad.resx">
       <DependentUpon>Prehlad.cs</DependentUpon>
