@@ -17,9 +17,9 @@ namespace ProjectsManager
         public Prehlad()
         {
             InitializeComponent();
-            maindatagridview.ColumnHeadersDefaultCellStyle.Font = new Font("Cambria", 15F, FontStyle.Bold); // nastavenie fontu pre hlavicku
-            maindatagridview.DefaultCellStyle.Font = new Font("Cambria", 11F); // nastavenie fontu pre bunky
-            maindatagridview.Rows.Add(new object[] { 2, "Projekt", "Palica", "", "", "Informatika", "Voľné"});
+            DatagridviewHandler handler = new DatagridviewHandler();
+            LoadDefaultDatagridview(handler.GetDataReaderOfProjects());
+            GetDataForComboboxes();
         }
 
         #endregion
@@ -27,8 +27,7 @@ namespace ProjectsManager
         #region Events
         private void Prehlad_Load(object sender, EventArgs e)
         {
-            DatagridviewHandler handler = new DatagridviewHandler();
-            LoadDefaultDatagridview(handler.GetDataReaderOfProjects());
+
         }
 
         private void maindatagridview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -44,6 +43,9 @@ namespace ProjectsManager
         /// </summary>
         private void StyleDatagridview()
         {
+            maindatagridview.ColumnHeadersDefaultCellStyle.Font = new Font("Cambria", 14F, FontStyle.Bold); // nastavenie fontu pre hlavicku
+            maindatagridview.DefaultCellStyle.Font = new Font("Cambria", 13F); // nastavenie fontu pre bunky
+            maindatagridview.Rows.Add(new object[] { 2, "Projekt", "Palica", "", "", "Informatika", "Voľné" });
             foreach (DataGridViewRow row in maindatagridview.Rows)
             {
                 var cell_student = row.Cells[3]; // student
@@ -99,6 +101,68 @@ namespace ProjectsManager
             }
             reader.Close(); // zatvorenie readeru -> IMPORTANT
             StyleDatagridview();
+        }
+
+        private void GetTeacherComboboxData()
+        {
+            teacherCombobox.Items.Add(new ComboItem("Konzultant", 0));
+            string teacher_query = "SELECT DISTINCT user_full_name, user_id FROM users WHERE user_role = 'Učiteľ';";
+            MySqlCommand cmd = new MySqlCommand(teacher_query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (!reader.HasRows)
+            {
+                return;
+            }
+            while (reader.Read())
+            {
+                teacherCombobox.Items.Add(new ComboItem(reader.GetString("user_full_name"), reader.GetInt32("user_id")));
+            }
+            reader.Close();
+            teacherCombobox.SelectedIndex = 0;
+        }
+
+        private void GetDepartmentsComboboxData()
+        {
+            departmentCombobox.Items.Add(new ComboItem("Odbor", 0));
+            string departments_query = "SELECT department_id, department_name FROM departments;";
+            MySqlCommand cmd = new MySqlCommand(departments_query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (!reader.HasRows)
+            {
+                return;
+            }
+            while (reader.Read())
+            {
+                departmentCombobox.Items.Add(new ComboItem(reader.GetString("department_name"), reader.GetInt32("department_id")));
+            }
+            reader.Close();
+            departmentCombobox.SelectedIndex = 0;
+        }
+
+        private void GetClassesComboboxData()
+        {
+            classCombobox.Items.Add(new ComboItem("Trieda", 0));
+            string classes_query = "SELECT class_id, class_name FROM classes;";
+            MySqlCommand cmd = new MySqlCommand(classes_query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (!reader.HasRows)
+            {
+                return;
+            }
+            while (reader.Read())
+            {
+                classCombobox.Items.Add(new ComboItem(reader.GetString("class_name"), reader.GetInt32("class_id")));
+            }
+            reader.Close();
+            classCombobox.SelectedIndex = 0;
+        }
+
+        private void GetDataForComboboxes()
+        {
+            GetTeacherComboboxData();
+            GetDepartmentsComboboxData();
+            GetClassesComboboxData();
+            statusCombobox.SelectedIndex = 0;
         }
         #endregion
     }
