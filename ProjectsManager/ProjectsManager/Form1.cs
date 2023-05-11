@@ -61,5 +61,16 @@ namespace ProjectsManager
             DB.connection.Dispose(); 
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Registration reg = new Registration(this);
+            reg.Show();
+            this.Hide();
+            emailTextbox.Texts = string.Empty;
+            passwordTextbox.Texts = string.Empty;
+            reg.FormClosed += (s, d) => this.Show();
+        }
+
     }
 }

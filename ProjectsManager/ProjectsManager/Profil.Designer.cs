@@ -28,58 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelheader = new System.Windows.Forms.Panel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.panelheader.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.NameTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EmailTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelheader
+            // panel1
             // 
-            this.panelheader.BackColor = System.Drawing.Color.Indigo;
-            this.panelheader.Controls.Add(this.iconButton1);
-            this.panelheader.Controls.Add(this.iconButton5);
-            this.panelheader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelheader.Location = new System.Drawing.Point(0, 0);
-            this.panelheader.Name = "panelheader";
-            this.panelheader.Size = new System.Drawing.Size(800, 30);
-            this.panelheader.TabIndex = 2;
+            this.panel1.Controls.Add(this.EmailTextBox);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.NameTextBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(780, 430);
+            this.panel1.TabIndex = 0;
             // 
-            // iconButton5
+            // NameTextBox
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.ForeColor = System.Drawing.Color.White;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.iconButton5.IconColor = System.Drawing.Color.White;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 17;
-            this.iconButton5.Location = new System.Drawing.Point(770, 0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(30, 30);
-            this.iconButton5.TabIndex = 3;
-            this.iconButton5.UseVisualStyleBackColor = false;
+            this.NameTextBox.BackColor = System.Drawing.Color.White;
+            this.NameTextBox.BorderColor = System.Drawing.Color.DarkGray;
+            this.NameTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.NameTextBox.BorderSize = 2;
+            this.NameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NameTextBox.ForeColor = System.Drawing.Color.Indigo;
+            this.NameTextBox.Location = new System.Drawing.Point(48, 109);
+            this.NameTextBox.MinimumSize = new System.Drawing.Size(0, 23);
+            this.NameTextBox.Multiline = false;
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Padding = new System.Windows.Forms.Padding(7);
+            this.NameTextBox.PasswordChar = false;
+            this.NameTextBox.PlaceholderColor = System.Drawing.Color.Gray;
+            this.NameTextBox.PlaceholderText = "Meno a priezvisko";
+            this.NameTextBox.Size = new System.Drawing.Size(324, 37);
+            this.NameTextBox.TabIndex = 4;
+            this.NameTextBox.Texts = "";
+            this.NameTextBox.UnderlinedStyle = false;
             // 
-            // iconButton1
+            // label1
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 17;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.iconButton1.Size = new System.Drawing.Size(100, 30);
-            this.iconButton1.TabIndex = 4;
-            this.iconButton1.Text = "Profil";
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cambria", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
+            this.label1.Location = new System.Drawing.Point(281, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(218, 57);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Váš profil";
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.BackColor = System.Drawing.Color.White;
+            this.EmailTextBox.BorderColor = System.Drawing.Color.DarkGray;
+            this.EmailTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.EmailTextBox.BorderSize = 2;
+            this.EmailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EmailTextBox.ForeColor = System.Drawing.Color.Indigo;
+            this.EmailTextBox.Location = new System.Drawing.Point(409, 109);
+            this.EmailTextBox.MinimumSize = new System.Drawing.Size(0, 23);
+            this.EmailTextBox.Multiline = false;
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Padding = new System.Windows.Forms.Padding(7);
+            this.EmailTextBox.PasswordChar = false;
+            this.EmailTextBox.PlaceholderColor = System.Drawing.Color.Gray;
+            this.EmailTextBox.PlaceholderText = "Email";
+            this.EmailTextBox.Size = new System.Drawing.Size(326, 37);
+            this.EmailTextBox.TabIndex = 6;
+            this.EmailTextBox.Texts = "";
+            this.EmailTextBox.UnderlinedStyle = false;
             // 
             // Profil
             // 
@@ -87,19 +106,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panelheader);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Profil";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Profil";
-            this.panelheader.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelheader;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Panel panel1;
+        private CustomComponents.CustomTextbox NameTextBox;
+        private CustomComponents.CustomTextbox EmailTextBox;
+        private System.Windows.Forms.Label label1;
     }
 }

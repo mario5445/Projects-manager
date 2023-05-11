@@ -108,7 +108,7 @@
             this.btnreports.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnreports.Size = new System.Drawing.Size(200, 37);
             this.btnreports.TabIndex = 1;
-            this.btnreports.Text = "Oznámenia";
+            this.btnreports.Text = "Moje projekty";
             this.btnreports.UseVisualStyleBackColor = false;
             // 
             // btnprofile
