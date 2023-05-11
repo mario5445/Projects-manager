@@ -20,6 +20,7 @@ namespace ProjectsManager
             DatagridviewHandler handler = new DatagridviewHandler();
             LoadDefaultDatagridview(handler.GetDataReaderOfProjects());
             GetDataForComboboxes();
+            maindatagridview.Rows.Add(new object[] { 2, "Projekt", "Palica", "", "", "Informatika", "Voľné" });
         }
 
         #endregion
@@ -45,7 +46,7 @@ namespace ProjectsManager
         {
             maindatagridview.ColumnHeadersDefaultCellStyle.Font = new Font("Cambria", 14F, FontStyle.Bold); // nastavenie fontu pre hlavicku
             maindatagridview.DefaultCellStyle.Font = new Font("Cambria", 13F); // nastavenie fontu pre bunky
-            maindatagridview.Rows.Add(new object[] { 2, "Projekt", "Palica", "", "", "Informatika", "Voľné" });
+
             foreach (DataGridViewRow row in maindatagridview.Rows)
             {
                 var cell_student = row.Cells[3]; // student
@@ -87,6 +88,7 @@ namespace ProjectsManager
         /// <param name="reader">Reader to read from</param>
         private void LoadDefaultDatagridview(MySqlDataReader reader)
         {
+            maindatagridview.Rows.Clear();
             //maindatagridview.Rows.Clear();
             while (reader.Read()) // citanie 
             {
@@ -101,6 +103,23 @@ namespace ProjectsManager
             }
             reader.Close(); // zatvorenie readeru -> IMPORTANT
             StyleDatagridview();
+        }
+
+        private void FillDatagridview(MySqlDataReader reader)
+        {
+            maindatagridview.Rows.Clear();
+            while (reader.Read()) // citanie 
+            {
+                int id = reader.GetInt32("id"); // preberanie hodnoty z readeru
+                string name = reader.GetString("name");
+                string teacher = reader.GetString("teacher");
+                string student = reader.GetString("student");
+                string student_class = reader.GetString("student_class");
+                string department = reader.GetString("department");
+                string status = reader.GetString("status");
+                maindatagridview.Rows.Add(new object[] { id, name, teacher, student, student_class, department, status }); // pridanie riadku do Datagridview
+            }
+            reader.Close();
         }
 
         private void GetTeacherComboboxData()
@@ -165,5 +184,105 @@ namespace ProjectsManager
             statusCombobox.SelectedIndex = 0;
         }
         #endregion
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            int num = 0;
+            List<MySqlParameter> parameters = new List<MySqlParameter>();
+            if (projectNameSearch.Texts.Trim() == string.Empty && 
+                teacherCombobox.SelectedIndex == 0 && 
+                departmentCombobox.SelectedIndex == 0 && 
+                statusCombobox.SelectedIndex == 0 && 
+                studentSearch.Texts.Trim() == string.Empty &&
+                classCombobox.SelectedIndex == 0)
+            {
+                
+                return;
+            }
+            string project_name = projectNameSearch.Texts.Trim();
+            string project_teacher = teacherCombobox.SelectedIndex != 0 ? teacherCombobox.SelectedItem.ToString() : string.Empty;
+            string project_department = departmentCombobox.SelectedIndex != 0 ? departmentCombobox.SelectedItem.ToString() : string.Empty;
+            string project_status = statusCombobox.SelectedIndex != 0 ? statusCombobox.SelectedItem.ToString() : string.Empty;
+            string project_student = studentSearch.Texts.Trim();
+            string student_class = classCombobox.SelectedIndex != 0 ? classCombobox.SelectedItem.ToString() : string.Empty;
+            string query = "SELECT p.project_id AS 'id', p.project_name AS 'name', u.user_full_name AS 'teacher', us.user_full_name AS 'student', us.name_of_class AS 'student_class', dp.department_name AS 'department', p.project_status AS 'status'" +
+                "\r\nFROM projects AS p" +
+                "\r\nINNER JOIN users AS u ON p.project_teacher = u.user_id" +
+                "\r\nLEFT JOIN (" +
+                "\r\n    SELECT usr.user_id, usr.user_full_name, cl.class_name AS name_of_class " +
+                "\r\n    FROM users AS usr " +
+                "\r\n    LEFT JOIN classes AS cl ON usr.user_class = cl.class_id) " +
+                "\r\n    AS us ON p.project_student = us.user_id" +
+                "\r\nLEFT JOIN departments AS dp ON p.project_department = dp.department_id " +
+                "WHERE ";
+            if (!string.IsNullOrEmpty(project_name))
+            {
+                query += "p.project_name LIKE @Name ";
+                parameters.Add(new MySqlParameter("@Name", "%" + project_name + "%"));
+                num++;
+            }
+            if (!string.IsNullOrEmpty(project_teacher))
+            {
+                if (num > 0)
+                {
+                    query += "AND ";
+                }
+                query += "u.user_full_name = @Teacher ";
+                parameters.Add(new MySqlParameter("@Teacher", project_teacher));
+                num++;
+            }
+            if (!string.IsNullOrEmpty(project_department))
+            {
+                if (num > 0)
+                {
+                    query += "AND ";
+                }
+                query += "dp.department_name = @Department ";
+                parameters.Add(new MySqlParameter("@Department", project_department));
+                num++;
+            }
+            if (!string.IsNullOrEmpty(project_status))
+            {
+                if (num > 0)
+                {
+                    query += "AND ";
+                }
+                query += "p.project_status = @Status ";
+                parameters.Add(new MySqlParameter("@Status", project_status));
+                num++;
+            }
+            if (!string.IsNullOrEmpty(project_student))
+            {
+                if (num > 0)
+                {
+                    query += "AND ";
+                }
+                query += "us.user_full_name LIKE @Student ";
+                parameters.Add(new MySqlParameter("@Student", "%" + project_student + "%"));
+                num++;
+            }
+            if (!string.IsNullOrEmpty(student_class))
+            {
+                if (num > 0)
+                {
+                    query += "AND ";
+                }
+                query += "us.name_of_class = @Class ";
+                parameters.Add(new MySqlParameter("@Class", student_class));
+            }
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            foreach (MySqlParameter mySqlParameter in parameters)
+            {
+                cmd.Parameters.Add(mySqlParameter);
+            }
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (!reader.HasRows)
+            {
+                maindatagridview.Rows.Clear();
+                reader.Close();
+                return;
+            }
+            LoadDefaultDatagridview(reader);
+        }
     }
 }

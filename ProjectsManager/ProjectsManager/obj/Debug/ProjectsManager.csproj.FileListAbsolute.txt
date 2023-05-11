@@ -87,3 +87,4 @@ C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.exe
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.pdb
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Registration.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Registration.resources

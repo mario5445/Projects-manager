@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.studentSearch = new ProjectsManager.CustomComponents.CustomTextbox();
             this.statusCombobox = new System.Windows.Forms.ComboBox();
             this.classCombobox = new System.Windows.Forms.ComboBox();
             this.departmentCombobox = new System.Windows.Forms.ComboBox();
             this.teacherCombobox = new System.Windows.Forms.ComboBox();
             this.btnFilter = new System.Windows.Forms.Button();
+            this.projectNameSearch = new ProjectsManager.CustomComponents.CustomTextbox();
             this.panelDataGridView = new System.Windows.Forms.Panel();
             this.maindatagridview = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,10 +49,6 @@
             this.student_class = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentSearch = new ProjectsManager.CustomComponents.CustomTextbox();
-            this.projectNameSearch = new ProjectsManager.CustomComponents.CustomTextbox();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnExport = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelDataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maindatagridview)).BeginInit();
@@ -71,6 +71,59 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(931, 134);
             this.panel1.TabIndex = 1;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExport.BackColor = System.Drawing.Color.Lime;
+            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExport.FlatAppearance.BorderSize = 0;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
+            this.btnExport.ForeColor = System.Drawing.Color.Black;
+            this.btnExport.Location = new System.Drawing.Point(767, 89);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(164, 39);
+            this.btnExport.TabIndex = 8;
+            this.btnExport.Text = "Exportovať";
+            this.btnExport.UseVisualStyleBackColor = false;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.Location = new System.Drawing.Point(597, 89);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(164, 39);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Obnoviť";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // studentSearch
+            // 
+            this.studentSearch.BackColor = System.Drawing.Color.White;
+            this.studentSearch.BorderColor = System.Drawing.Color.LightGray;
+            this.studentSearch.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.studentSearch.BorderSize = 1;
+            this.studentSearch.Font = new System.Drawing.Font("Cambria", 12F);
+            this.studentSearch.ForeColor = System.Drawing.Color.Indigo;
+            this.studentSearch.Location = new System.Drawing.Point(4, 53);
+            this.studentSearch.MinimumSize = new System.Drawing.Size(0, 20);
+            this.studentSearch.Multiline = false;
+            this.studentSearch.Name = "studentSearch";
+            this.studentSearch.Padding = new System.Windows.Forms.Padding(7);
+            this.studentSearch.PasswordChar = false;
+            this.studentSearch.PlaceholderColor = System.Drawing.Color.Gray;
+            this.studentSearch.PlaceholderText = "Meno študenta";
+            this.studentSearch.Size = new System.Drawing.Size(250, 33);
+            this.studentSearch.TabIndex = 6;
+            this.studentSearch.Texts = "";
+            this.studentSearch.UnderlinedStyle = true;
             // 
             // statusCombobox
             // 
@@ -144,6 +197,28 @@
             this.btnFilter.TabIndex = 1;
             this.btnFilter.Text = "Filtrovať";
             this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // projectNameSearch
+            // 
+            this.projectNameSearch.BackColor = System.Drawing.Color.White;
+            this.projectNameSearch.BorderColor = System.Drawing.Color.LightGray;
+            this.projectNameSearch.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.projectNameSearch.BorderSize = 1;
+            this.projectNameSearch.Font = new System.Drawing.Font("Cambria", 12F);
+            this.projectNameSearch.ForeColor = System.Drawing.Color.Indigo;
+            this.projectNameSearch.Location = new System.Drawing.Point(4, 3);
+            this.projectNameSearch.MinimumSize = new System.Drawing.Size(0, 20);
+            this.projectNameSearch.Multiline = false;
+            this.projectNameSearch.Name = "projectNameSearch";
+            this.projectNameSearch.Padding = new System.Windows.Forms.Padding(7);
+            this.projectNameSearch.PasswordChar = false;
+            this.projectNameSearch.PlaceholderColor = System.Drawing.Color.Gray;
+            this.projectNameSearch.PlaceholderText = "Názov projektu";
+            this.projectNameSearch.Size = new System.Drawing.Size(250, 33);
+            this.projectNameSearch.TabIndex = 0;
+            this.projectNameSearch.Texts = "";
+            this.projectNameSearch.UnderlinedStyle = true;
             // 
             // panelDataGridView
             // 
@@ -167,14 +242,14 @@
             this.maindatagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.maindatagridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.maindatagridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.maindatagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(15)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.maindatagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.maindatagridview.ColumnHeadersHeight = 32;
             this.maindatagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -184,14 +259,14 @@
             this.student_class,
             this.department,
             this.status});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.DarkBlue;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.maindatagridview.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DarkBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.maindatagridview.DefaultCellStyle = dataGridViewCellStyle2;
             this.maindatagridview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.maindatagridview.EnableHeadersVisualStyles = false;
             this.maindatagridview.GridColor = System.Drawing.Color.LightGray;
@@ -260,80 +335,6 @@
             this.status.HeaderText = "Status";
             this.status.Name = "status";
             this.status.ReadOnly = true;
-            // 
-            // studentSearch
-            // 
-            this.studentSearch.BackColor = System.Drawing.Color.White;
-            this.studentSearch.BorderColor = System.Drawing.Color.LightGray;
-            this.studentSearch.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.studentSearch.BorderSize = 1;
-            this.studentSearch.Font = new System.Drawing.Font("Cambria", 12F);
-            this.studentSearch.ForeColor = System.Drawing.Color.Indigo;
-            this.studentSearch.Location = new System.Drawing.Point(4, 53);
-            this.studentSearch.MinimumSize = new System.Drawing.Size(0, 20);
-            this.studentSearch.Multiline = false;
-            this.studentSearch.Name = "studentSearch";
-            this.studentSearch.Padding = new System.Windows.Forms.Padding(7);
-            this.studentSearch.PasswordChar = false;
-            this.studentSearch.PlaceholderColor = System.Drawing.Color.Gray;
-            this.studentSearch.PlaceholderText = "Meno študenta";
-            this.studentSearch.Size = new System.Drawing.Size(250, 33);
-            this.studentSearch.TabIndex = 6;
-            this.studentSearch.Texts = "";
-            this.studentSearch.UnderlinedStyle = true;
-            // 
-            // projectNameSearch
-            // 
-            this.projectNameSearch.BackColor = System.Drawing.Color.White;
-            this.projectNameSearch.BorderColor = System.Drawing.Color.LightGray;
-            this.projectNameSearch.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.projectNameSearch.BorderSize = 1;
-            this.projectNameSearch.Font = new System.Drawing.Font("Cambria", 12F);
-            this.projectNameSearch.ForeColor = System.Drawing.Color.Indigo;
-            this.projectNameSearch.Location = new System.Drawing.Point(4, 3);
-            this.projectNameSearch.MinimumSize = new System.Drawing.Size(0, 20);
-            this.projectNameSearch.Multiline = false;
-            this.projectNameSearch.Name = "projectNameSearch";
-            this.projectNameSearch.Padding = new System.Windows.Forms.Padding(7);
-            this.projectNameSearch.PasswordChar = false;
-            this.projectNameSearch.PlaceholderColor = System.Drawing.Color.Gray;
-            this.projectNameSearch.PlaceholderText = "Názov projektu";
-            this.projectNameSearch.Size = new System.Drawing.Size(250, 33);
-            this.projectNameSearch.TabIndex = 0;
-            this.projectNameSearch.Texts = "";
-            this.projectNameSearch.UnderlinedStyle = true;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
-            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.btnRefresh.Location = new System.Drawing.Point(597, 89);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(164, 39);
-            this.btnRefresh.TabIndex = 7;
-            this.btnRefresh.Text = "Obnoviť";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            // 
-            // btnExport
-            // 
-            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.BackColor = System.Drawing.Color.Lime;
-            this.btnExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExport.FlatAppearance.BorderSize = 0;
-            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExport.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
-            this.btnExport.ForeColor = System.Drawing.Color.Black;
-            this.btnExport.Location = new System.Drawing.Point(767, 89);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(164, 39);
-            this.btnExport.TabIndex = 8;
-            this.btnExport.Text = "Exportovať";
-            this.btnExport.UseVisualStyleBackColor = false;
             // 
             // Prehlad
             // 

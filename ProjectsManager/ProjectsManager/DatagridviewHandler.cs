@@ -29,7 +29,7 @@ namespace ProjectsManager
             MySqlCommand cmd = new MySqlCommand(query, DB.connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             return reader;
-        }
+        }  
 
         #endregion
     }
