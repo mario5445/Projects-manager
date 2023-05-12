@@ -103,6 +103,7 @@
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Obnoviť";
             this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // studentSearch
             // 

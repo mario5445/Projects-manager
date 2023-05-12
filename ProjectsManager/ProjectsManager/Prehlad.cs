@@ -13,14 +13,15 @@ namespace ProjectsManager
 {
     public partial class Prehlad : Form
     {
+        private DatagridviewHandler gridviewHandler;
         #region Constructor
         public Prehlad()
         {
             InitializeComponent();
-            DatagridviewHandler handler = new DatagridviewHandler();
-            LoadDefaultDatagridview(handler.GetDataReaderOfProjects());
+            gridviewHandler = new DatagridviewHandler();
+            StyleDatagridview();
+            LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
             GetDataForComboboxes();
-            maindatagridview.Rows.Add(new object[] { 2, "Projekt", "Palica", "", "", "Informatika", "Voľné" });
         }
 
         #endregion
@@ -83,7 +84,7 @@ namespace ProjectsManager
         }
 
         /// <summary>
-        /// Loads default Datagridview without any filters
+        /// Loads Datagridview 
         /// </summary>
         /// <param name="reader">Reader to read from</param>
         private void LoadDefaultDatagridview(MySqlDataReader reader)
@@ -95,14 +96,14 @@ namespace ProjectsManager
                 int id = reader.GetInt32("id"); // preberanie hodnoty z readeru
                 string name = reader.GetString("name");
                 string teacher = reader.GetString("teacher");
-                string student = reader.GetString("student");
-                string student_class = reader.GetString("student_class");
-                string department = reader.GetString("department");
+                string student = !reader.IsDBNull(3) ? reader.GetString("student") : "-";
+                string student_class = !reader.IsDBNull(4) ? reader.GetString("student_class") : "-";
+                string department = !reader.IsDBNull(5) ? reader.GetString("department") : "-";
                 string status = reader.GetString("status");
                 maindatagridview.Rows.Add(new object[] { id, name, teacher, student, student_class, department, status }); // pridanie riadku do Datagridview
             }
             reader.Close(); // zatvorenie readeru -> IMPORTANT
-            StyleDatagridview();
+
         }
 
         private void FillDatagridview(MySqlDataReader reader)
@@ -205,16 +206,8 @@ namespace ProjectsManager
             string project_status = statusCombobox.SelectedIndex != 0 ? statusCombobox.SelectedItem.ToString() : string.Empty;
             string project_student = studentSearch.Texts.Trim();
             string student_class = classCombobox.SelectedIndex != 0 ? classCombobox.SelectedItem.ToString() : string.Empty;
-            string query = "SELECT p.project_id AS 'id', p.project_name AS 'name', u.user_full_name AS 'teacher', us.user_full_name AS 'student', us.name_of_class AS 'student_class', dp.department_name AS 'department', p.project_status AS 'status'" +
-                "\r\nFROM projects AS p" +
-                "\r\nINNER JOIN users AS u ON p.project_teacher = u.user_id" +
-                "\r\nLEFT JOIN (" +
-                "\r\n    SELECT usr.user_id, usr.user_full_name, cl.class_name AS name_of_class " +
-                "\r\n    FROM users AS usr " +
-                "\r\n    LEFT JOIN classes AS cl ON usr.user_class = cl.class_id) " +
-                "\r\n    AS us ON p.project_student = us.user_id" +
-                "\r\nLEFT JOIN departments AS dp ON p.project_department = dp.department_id " +
-                "WHERE ";
+            string query = gridviewHandler.defaultQuery;
+            query += " WHERE ";
             if (!string.IsNullOrEmpty(project_name))
             {
                 query += "p.project_name LIKE @Name ";
@@ -283,6 +276,17 @@ namespace ProjectsManager
                 return;
             }
             LoadDefaultDatagridview(reader);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            projectNameSearch.Texts = string.Empty;
+            teacherCombobox.SelectedIndex = 0;
+            departmentCombobox.SelectedIndex = 0;
+            statusCombobox.SelectedIndex = 0;
+            classCombobox.SelectedIndex = 0;
+            studentSearch.Texts = string.Empty;
+            LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
         }
     }
 }
