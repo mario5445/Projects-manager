@@ -131,6 +131,7 @@ namespace ProjectsManager
             MySqlDataReader reader = cmd.ExecuteReader();
             if (!reader.HasRows)
             {
+                reader.Close();
                 return;
             }
             while (reader.Read())
@@ -149,6 +150,7 @@ namespace ProjectsManager
             MySqlDataReader reader = cmd.ExecuteReader();
             if (!reader.HasRows)
             {
+                reader.Close();
                 return;
             }
             while (reader.Read())
@@ -167,6 +169,7 @@ namespace ProjectsManager
             MySqlDataReader reader = cmd.ExecuteReader();
             if (!reader.HasRows)
             {
+                reader.Close();
                 return;
             }
             while (reader.Read())

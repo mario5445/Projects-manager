@@ -120,6 +120,7 @@
     <Compile Include="Oznamenia.Designer.cs">
       <DependentUpon>Oznamenia.cs</DependentUpon>
     </Compile>
+    <Compile Include="PassworChecker.cs" />
     <Compile Include="PlaceholderFormForMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,7 +147,9 @@
     <Compile Include="Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistrationHandler.cs" />
     <Compile Include="UtilityClasses\ComboItem.cs" />
+    <Compile Include="UtilityClasses\User.cs" />
     <EmbeddedResource Include="CustomComponents\CustomTextbox.resx">
       <DependentUpon>CustomTextbox.cs</DependentUpon>
     </EmbeddedResource>

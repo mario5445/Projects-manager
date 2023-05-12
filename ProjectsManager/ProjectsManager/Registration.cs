@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace ProjectsManager
 {
     public partial class Registration : Form
     {
+        private RegistrationHandler handler;
 
         private Form1 LoginForm { get; set; }
 
@@ -19,6 +21,7 @@ namespace ProjectsManager
         {
             InitializeComponent();
             LoginForm = loginForm;  
+            handler = new RegistrationHandler();
         }
 
         private void customTextbox3__TextChanged(object sender, EventArgs e)
@@ -50,6 +53,97 @@ namespace ProjectsManager
         private void ConfirmPasswordTextBox__TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RegistrationButton_Click(object sender, EventArgs e)
+        {
+            if (NameTextBox.Texts.Trim() == string.Empty || EmailTextBox.Texts.Trim() == string.Empty || PasswordTextBox.Texts.Trim() == string.Empty || ConfirmPasswordTextBox.Texts.Trim() == string.Empty || classComboBox.SelectedIndex == 0)
+            {
+                return;
+            }
+            string name = NameTextBox.Texts.Trim();
+            string email = EmailTextBox.Texts.Trim();
+            string password = PasswordTextBox.Texts.Trim();
+            int user_class = ((ComboItem)classComboBox.SelectedItem).Value;
+            if (handler.EmailExists(email))
+            {
+                errorMessageLabel.ForeColor = Color.Red;
+                errorMessageLabel.Text = "Zadaný email už existuje";
+                return;
+            }
+            if (ConfirmPasswordTextBox.Texts.Trim() != password)
+            {
+                ConfirmPasswordTextBox.BorderColor = Color.Red;
+                return;
+            }
+            handler.InsertUser(new User(name, email, password, "Študent", user_class));
+            MessageBox.Show("Používateľ úspešne zaregistrovaný");
+            LoginForm.Show();
+            this.Close();
+        }
+
+        private void Registration_Load(object sender, EventArgs e)
+        {
+            classComboBox.Items.Add(new ComboItem("Trieda", 0));
+            string classes_query = "SELECT class_id, class_name FROM classes;";
+            MySqlCommand cmd = new MySqlCommand(classes_query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (!reader.HasRows)
+            {
+                reader.Close();
+                return;
+            }
+            while (reader.Read())
+            {
+                classComboBox.Items.Add(new ComboItem(reader.GetString("class_name"), reader.GetInt32("class_id")));
+            }
+            reader.Close();
+            classComboBox.SelectedIndex = 0;
+        }
+
+        private void PasswordTextBox__TextChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckBox.Checked)
+            {
+                PasswordTextBox.PasswordChar = false;
+                ConfirmPasswordTextBox.PasswordChar = false;
+            }
+            string password = PasswordTextBox.Texts.Trim();
+            if (password == string.Empty)
+            {
+                passwordStrengthLabel.Text = "-";
+                passwordStrengthPanel.BackColor = Color.Gray;
+                return;
+            }
+            PasswordScore score = PassworChecker.CheckStrength(password);
+
+            switch (score)
+            {
+                case PasswordScore.TooShort:
+                    passwordStrengthLabel.Text = "Príliš krátke";
+                    passwordStrengthPanel.BackColor = Color.DarkRed;
+                    break;
+                case PasswordScore.VeryWeak:
+                    passwordStrengthLabel.Text = "Veľmi slabé";
+                    passwordStrengthPanel.BackColor = Color.Red;
+                    break;
+                case PasswordScore.Weak:
+                    passwordStrengthLabel.Text = "Slabé";
+                    passwordStrengthPanel.BackColor = Color.Salmon;
+                    break;
+                case PasswordScore.Medium:
+                    passwordStrengthLabel.Text = "Medium";
+                    passwordStrengthPanel.BackColor = Color.Orange;
+                    break;
+                case PasswordScore.Strong:
+                    passwordStrengthLabel.Text = "Silné";
+                    passwordStrengthPanel.BackColor = Color.Lime;
+                    break;
+                case PasswordScore.VeryStrong:
+                    passwordStrengthLabel.Text = "Veľmi silné";
+                    passwordStrengthPanel.BackColor = Color.DarkGreen;
+                    break;
+            }
         }
     }
 }
