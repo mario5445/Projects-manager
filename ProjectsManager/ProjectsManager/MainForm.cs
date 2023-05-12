@@ -85,10 +85,6 @@ namespace ProjectsManager
         {
             if (currentForm == "Prehľad")
             {
-                //this.mainpanel.Controls.RemoveAt(0);
-                //currentForm_Form.Close();
-                //currentForm_Form = null;
-                //currentForm = null;
                 return;
             }
             this.Text = "Prehľad";
@@ -135,5 +131,22 @@ namespace ProjectsManager
             currentButton = null;
         }
         #endregion
+
+        private void btnprofile_Click(object sender, EventArgs e)
+        {
+            if (currentForm == "Profil")
+            {
+                return;
+            }
+            this.Text = "Profil";
+            loadForm(new Profil());
+            currentForm = "Profil";
+            currentButton = btnprofile;
+            if (currentButton != null)
+            {
+                removeCurrentBtnProperties(currentButton);
+            }
+            setCurrentBtnProperties(currentButton);
+        }
     }
 }
