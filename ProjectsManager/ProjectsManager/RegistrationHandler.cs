@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,5 +34,35 @@ namespace ProjectsManager
             cmd.Parameters.AddWithValue("@Password", user.Password);
             cmd.ExecuteNonQuery();
         }
+
+        public void UpdateUser(User user)
+        {
+            string query = $"UPDATE users SET user_full_name = @Name, user_email = @Email, user_password = @Password, user_class = @Class WHERE user_id = {user.ID}";
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.Parameters.AddWithValue("@Class", user.User_class);
+            cmd.ExecuteNonQuery();
+        }
+
+        public bool IsValidEmail(string email)
+        {
+            bool valid = true;
+            if (email.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var address = new MailAddress(email);
+            }
+            catch (Exception)
+            {
+                valid = false;
+            }
+            return valid;
+        }
+
     }
 }

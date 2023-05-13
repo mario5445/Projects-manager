@@ -32,7 +32,7 @@ namespace ProjectsManager
             if (result.HasValue) // kontrola ci vysledok nie je null
             {
                 errorLabel.Text = ""; // vymazanie textu chybovej hlasky
-                MainForm mainForm = new MainForm(loginHandler.username);
+                MainForm mainForm = new MainForm(loginHandler.username, loginHandler.user_id, loginHandler.user_role);
                 this.Hide();
                 mainForm.Show();
                 emailTextbox.Texts = string.Empty;

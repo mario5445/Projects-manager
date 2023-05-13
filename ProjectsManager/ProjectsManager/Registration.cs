@@ -59,12 +59,19 @@ namespace ProjectsManager
         {
             if (NameTextBox.Texts.Trim() == string.Empty || EmailTextBox.Texts.Trim() == string.Empty || PasswordTextBox.Texts.Trim() == string.Empty || ConfirmPasswordTextBox.Texts.Trim() == string.Empty || classComboBox.SelectedIndex == 0)
             {
+                MessageBox.Show("Vyplňte prosím všetky polia");
                 return;
             }
             string name = NameTextBox.Texts.Trim();
             string email = EmailTextBox.Texts.Trim();
             string password = PasswordTextBox.Texts.Trim();
             int user_class = ((ComboItem)classComboBox.SelectedItem).Value;
+            if (!handler.IsValidEmail(email))
+            {
+                MessageBox.Show("Zadajte platnú emailovú adresu");
+                EmailTextBox.Texts = string.Empty;
+                return;
+            }
             if (handler.EmailExists(email))
             {
                 errorMessageLabel.ForeColor = Color.Red;

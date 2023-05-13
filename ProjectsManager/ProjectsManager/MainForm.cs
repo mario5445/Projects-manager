@@ -20,12 +20,21 @@ namespace ProjectsManager
         private PlaceholderFormForMainForm placeholderForm;
         #endregion
 
+        #region Properties
+        private int user_id { get; set; }
+        private string username { get; set; }
+        private string user_role { get; set; }
+        #endregion
+
         #region Constructor
-        public MainForm(string username)
+        public MainForm(string username, int user_id, string user_role)
         {
             InitializeComponent();
             placeholderForm = new PlaceholderFormForMainForm(username);
             loadForm(placeholderForm);
+            this.username = username;
+            this.user_id = user_id;
+            this.user_role = user_role;
         }
 
         #endregion
@@ -90,11 +99,11 @@ namespace ProjectsManager
             this.Text = "Prehľad";
             loadForm(new Prehlad());
             currentForm = "Prehľad";
-            currentButton = btndashboard;
             if (currentButton != null)
             {
                 removeCurrentBtnProperties(currentButton);
             }
+            currentButton = btndashboard;
             setCurrentBtnProperties(currentButton);
         }
 
@@ -139,14 +148,30 @@ namespace ProjectsManager
                 return;
             }
             this.Text = "Profil";
-            loadForm(new Profil());
+            loadForm(new Profil(user_id));
             currentForm = "Profil";
-            currentButton = btnprofile;
             if (currentButton != null)
             {
                 removeCurrentBtnProperties(currentButton);
             }
+            currentButton = btnprofile;
             setCurrentBtnProperties(currentButton);
+        }
+
+        private void btnprofile_MouseHover(object sender, EventArgs e)
+        {
+            if (currentButton != btnprofile)
+            {
+                btnprofile.BackColor = Color.FromArgb(152, 15, 255);
+            }
+        }
+
+        private void btnprofile_MouseLeave(object sender, EventArgs e)
+        {
+            if (currentButton != btnprofile)
+            {
+                btnprofile.BackColor = Color.Indigo;
+            }
         }
     }
 }

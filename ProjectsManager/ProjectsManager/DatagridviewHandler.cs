@@ -20,7 +20,7 @@ namespace ProjectsManager
                 "\r\n    AS us ON p.project_student = us.user_id" +
                 "\r\nLEFT JOIN departments AS dp ON p.project_department = dp.department_id";
 
-        public string defaultQuery { get; private set; }
+        public static string defaultQuery { get; private set; }
 
         public DatagridviewHandler()
         {

@@ -29,21 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.EditButton = new FontAwesome.Sharp.IconButton();
-            this.ShowPasswordCheckBox = new System.Windows.Forms.CheckBox();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.passwordStrengthLabel = new System.Windows.Forms.Label();
+            this.passwordStrengthPanel = new System.Windows.Forms.Panel();
+            this.classComboBox = new System.Windows.Forms.ComboBox();
+            this.ShowPasswordCheckBox = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.UpdateButton = new FontAwesome.Sharp.IconButton();
+            this.errorMessageLabel = new System.Windows.Forms.Label();
+            this.ConfirmPasswordTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.EmailTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.PasswordTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.NameTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
-            this.classComboBox = new System.Windows.Forms.ComboBox();
-            this.passwordStrengthLabel = new System.Windows.Forms.Label();
-            this.passwordStrengthPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +63,93 @@
             this.panel1.Size = new System.Drawing.Size(911, 549);
             this.panel1.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Indigo;
+            this.panel2.Controls.Add(this.iconPictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(711, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 549);
+            this.panel2.TabIndex = 18;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.Indigo;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 187;
+            this.iconPictureBox1.Location = new System.Drawing.Point(32, 178);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(187, 190);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.iconPictureBox1.TabIndex = 17;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.errorMessageLabel);
+            this.panel3.Controls.Add(this.ConfirmPasswordTextBox);
+            this.panel3.Controls.Add(this.passwordStrengthLabel);
+            this.panel3.Controls.Add(this.passwordStrengthPanel);
+            this.panel3.Controls.Add(this.classComboBox);
+            this.panel3.Controls.Add(this.ShowPasswordCheckBox);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.EmailTextBox);
+            this.panel3.Controls.Add(this.PasswordTextBox);
+            this.panel3.Controls.Add(this.UpdateButton);
+            this.panel3.Controls.Add(this.NameTextBox);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(714, 549);
+            this.panel3.TabIndex = 19;
+            // 
+            // passwordStrengthLabel
+            // 
+            this.passwordStrengthLabel.AutoSize = true;
+            this.passwordStrengthLabel.Location = new System.Drawing.Point(574, 241);
+            this.passwordStrengthLabel.Name = "passwordStrengthLabel";
+            this.passwordStrengthLabel.Size = new System.Drawing.Size(10, 13);
+            this.passwordStrengthLabel.TabIndex = 19;
+            this.passwordStrengthLabel.Text = "-";
+            // 
+            // passwordStrengthPanel
+            // 
+            this.passwordStrengthPanel.BackColor = System.Drawing.Color.White;
+            this.passwordStrengthPanel.Location = new System.Drawing.Point(577, 265);
+            this.passwordStrengthPanel.Name = "passwordStrengthPanel";
+            this.passwordStrengthPanel.Size = new System.Drawing.Size(91, 11);
+            this.passwordStrengthPanel.TabIndex = 18;
+            // 
+            // classComboBox
+            // 
+            this.classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.classComboBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.classComboBox.ForeColor = System.Drawing.Color.Indigo;
+            this.classComboBox.FormattingEnabled = true;
+            this.classComboBox.Location = new System.Drawing.Point(428, 341);
+            this.classComboBox.Name = "classComboBox";
+            this.classComboBox.Size = new System.Drawing.Size(121, 30);
+            this.classComboBox.TabIndex = 17;
+            // 
+            // ShowPasswordCheckBox
+            // 
+            this.ShowPasswordCheckBox.AutoSize = true;
+            this.ShowPasswordCheckBox.BackColor = System.Drawing.Color.White;
+            this.ShowPasswordCheckBox.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(169, 344);
+            this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
+            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(154, 27);
+            this.ShowPasswordCheckBox.TabIndex = 16;
+            this.ShowPasswordCheckBox.Text = "Zobraziť heslo";
+            this.ShowPasswordCheckBox.UseVisualStyleBackColor = false;
+            this.ShowPasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckBox_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -70,80 +162,57 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Váš profil";
             // 
-            // EditButton
+            // UpdateButton
             // 
-            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditButton.AutoSize = true;
-            this.EditButton.BackColor = System.Drawing.Color.Green;
-            this.EditButton.FlatAppearance.BorderSize = 0;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
-            this.EditButton.IconColor = System.Drawing.Color.White;
-            this.EditButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EditButton.IconSize = 30;
-            this.EditButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EditButton.Location = new System.Drawing.Point(255, 463);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.EditButton.Size = new System.Drawing.Size(208, 39);
-            this.EditButton.TabIndex = 15;
-            this.EditButton.Text = "Aktualizovať";
-            this.EditButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateButton.AutoSize = true;
+            this.UpdateButton.BackColor = System.Drawing.Color.Green;
+            this.UpdateButton.FlatAppearance.BorderSize = 0;
+            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdateButton.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.UpdateButton.ForeColor = System.Drawing.Color.White;
+            this.UpdateButton.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.UpdateButton.IconColor = System.Drawing.Color.White;
+            this.UpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.UpdateButton.IconSize = 30;
+            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdateButton.Location = new System.Drawing.Point(255, 463);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.UpdateButton.Size = new System.Drawing.Size(208, 39);
+            this.UpdateButton.TabIndex = 15;
+            this.UpdateButton.Text = "Aktualizovať";
+            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // ShowPasswordCheckBox
+            // errorMessageLabel
             // 
-            this.ShowPasswordCheckBox.AutoSize = true;
-            this.ShowPasswordCheckBox.BackColor = System.Drawing.Color.White;
-            this.ShowPasswordCheckBox.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ShowPasswordCheckBox.Location = new System.Drawing.Point(169, 291);
-            this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
-            this.ShowPasswordCheckBox.Size = new System.Drawing.Size(154, 27);
-            this.ShowPasswordCheckBox.TabIndex = 16;
-            this.ShowPasswordCheckBox.Text = "Zobraziť heslo";
-            this.ShowPasswordCheckBox.UseVisualStyleBackColor = false;
+            this.errorMessageLabel.AutoSize = true;
+            this.errorMessageLabel.Location = new System.Drawing.Point(166, 91);
+            this.errorMessageLabel.Name = "errorMessageLabel";
+            this.errorMessageLabel.Size = new System.Drawing.Size(0, 13);
+            this.errorMessageLabel.TabIndex = 21;
             // 
-            // iconPictureBox1
+            // ConfirmPasswordTextBox
             // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.Indigo;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.White;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 187;
-            this.iconPictureBox1.Location = new System.Drawing.Point(29, 178);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(187, 190);
-            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.iconPictureBox1.TabIndex = 17;
-            this.iconPictureBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Indigo;
-            this.panel2.Controls.Add(this.iconPictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(711, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 549);
-            this.panel2.TabIndex = 18;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.passwordStrengthLabel);
-            this.panel3.Controls.Add(this.passwordStrengthPanel);
-            this.panel3.Controls.Add(this.classComboBox);
-            this.panel3.Controls.Add(this.ShowPasswordCheckBox);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.EmailTextBox);
-            this.panel3.Controls.Add(this.PasswordTextBox);
-            this.panel3.Controls.Add(this.EditButton);
-            this.panel3.Controls.Add(this.NameTextBox);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(714, 549);
-            this.panel3.TabIndex = 19;
+            this.ConfirmPasswordTextBox.BackColor = System.Drawing.Color.White;
+            this.ConfirmPasswordTextBox.BorderColor = System.Drawing.Color.DarkGray;
+            this.ConfirmPasswordTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.ConfirmPasswordTextBox.BorderSize = 1;
+            this.ConfirmPasswordTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ConfirmPasswordTextBox.ForeColor = System.Drawing.Color.Indigo;
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(169, 295);
+            this.ConfirmPasswordTextBox.MinimumSize = new System.Drawing.Size(0, 23);
+            this.ConfirmPasswordTextBox.Multiline = false;
+            this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
+            this.ConfirmPasswordTextBox.Padding = new System.Windows.Forms.Padding(7);
+            this.ConfirmPasswordTextBox.PasswordChar = true;
+            this.ConfirmPasswordTextBox.PlaceholderColor = System.Drawing.Color.Gray;
+            this.ConfirmPasswordTextBox.PlaceholderText = "Zopakujte heslo";
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(380, 37);
+            this.ConfirmPasswordTextBox.TabIndex = 20;
+            this.ConfirmPasswordTextBox.Texts = "";
+            this.ConfirmPasswordTextBox.UnderlinedStyle = false;
             // 
             // EmailTextBox
             // 
@@ -151,7 +220,7 @@
             this.EmailTextBox.BackColor = System.Drawing.Color.White;
             this.EmailTextBox.BorderColor = System.Drawing.Color.DarkGray;
             this.EmailTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.EmailTextBox.BorderSize = 2;
+            this.EmailTextBox.BorderSize = 1;
             this.EmailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.EmailTextBox.ForeColor = System.Drawing.Color.Indigo;
             this.EmailTextBox.Location = new System.Drawing.Point(169, 178);
@@ -161,7 +230,7 @@
             this.EmailTextBox.Padding = new System.Windows.Forms.Padding(7);
             this.EmailTextBox.PasswordChar = false;
             this.EmailTextBox.PlaceholderColor = System.Drawing.Color.Gray;
-            this.EmailTextBox.PlaceholderText = "Email";
+            this.EmailTextBox.PlaceholderText = "";
             this.EmailTextBox.Size = new System.Drawing.Size(380, 37);
             this.EmailTextBox.TabIndex = 6;
             this.EmailTextBox.Texts = "";
@@ -173,7 +242,7 @@
             this.PasswordTextBox.BackColor = System.Drawing.Color.White;
             this.PasswordTextBox.BorderColor = System.Drawing.Color.DarkGray;
             this.PasswordTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.PasswordTextBox.BorderSize = 2;
+            this.PasswordTextBox.BorderSize = 1;
             this.PasswordTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.PasswordTextBox.ForeColor = System.Drawing.Color.Indigo;
             this.PasswordTextBox.Location = new System.Drawing.Point(169, 239);
@@ -181,13 +250,14 @@
             this.PasswordTextBox.Multiline = false;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Padding = new System.Windows.Forms.Padding(7);
-            this.PasswordTextBox.PasswordChar = false;
+            this.PasswordTextBox.PasswordChar = true;
             this.PasswordTextBox.PlaceholderColor = System.Drawing.Color.Gray;
-            this.PasswordTextBox.PlaceholderText = "Heslo";
+            this.PasswordTextBox.PlaceholderText = "";
             this.PasswordTextBox.Size = new System.Drawing.Size(380, 37);
             this.PasswordTextBox.TabIndex = 7;
             this.PasswordTextBox.Texts = "";
             this.PasswordTextBox.UnderlinedStyle = false;
+            this.PasswordTextBox._TextChanged += new System.EventHandler(this.PasswordTextBox__TextChanged);
             // 
             // NameTextBox
             // 
@@ -195,7 +265,7 @@
             this.NameTextBox.BackColor = System.Drawing.Color.White;
             this.NameTextBox.BorderColor = System.Drawing.Color.DarkGray;
             this.NameTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.NameTextBox.BorderSize = 2;
+            this.NameTextBox.BorderSize = 1;
             this.NameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.NameTextBox.ForeColor = System.Drawing.Color.Indigo;
             this.NameTextBox.Location = new System.Drawing.Point(169, 119);
@@ -205,39 +275,44 @@
             this.NameTextBox.Padding = new System.Windows.Forms.Padding(7);
             this.NameTextBox.PasswordChar = false;
             this.NameTextBox.PlaceholderColor = System.Drawing.Color.Gray;
-            this.NameTextBox.PlaceholderText = "Meno a priezvisko";
+            this.NameTextBox.PlaceholderText = "";
             this.NameTextBox.Size = new System.Drawing.Size(380, 37);
             this.NameTextBox.TabIndex = 4;
             this.NameTextBox.Texts = "";
             this.NameTextBox.UnderlinedStyle = false;
             // 
-            // classComboBox
+            // label2
             // 
-            this.classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.classComboBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.classComboBox.ForeColor = System.Drawing.Color.Indigo;
-            this.classComboBox.FormattingEnabled = true;
-            this.classComboBox.Location = new System.Drawing.Point(428, 290);
-            this.classComboBox.Name = "classComboBox";
-            this.classComboBox.Size = new System.Drawing.Size(121, 30);
-            this.classComboBox.TabIndex = 17;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(87, 119);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(8);
+            this.label2.Size = new System.Drawing.Size(74, 38);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Meno";
             // 
-            // passwordStrengthLabel
+            // label3
             // 
-            this.passwordStrengthLabel.AutoSize = true;
-            this.passwordStrengthLabel.Location = new System.Drawing.Point(574, 238);
-            this.passwordStrengthLabel.Name = "passwordStrengthLabel";
-            this.passwordStrengthLabel.Size = new System.Drawing.Size(10, 13);
-            this.passwordStrengthLabel.TabIndex = 19;
-            this.passwordStrengthLabel.Text = "-";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(87, 178);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(8);
+            this.label3.Size = new System.Drawing.Size(76, 38);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Email";
             // 
-            // passwordStrengthPanel
+            // label4
             // 
-            this.passwordStrengthPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.passwordStrengthPanel.Location = new System.Drawing.Point(577, 256);
-            this.passwordStrengthPanel.Name = "passwordStrengthPanel";
-            this.passwordStrengthPanel.Size = new System.Drawing.Size(91, 11);
-            this.passwordStrengthPanel.TabIndex = 18;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(87, 238);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(8);
+            this.label4.Size = new System.Drawing.Size(76, 38);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Heslo";
             // 
             // Profil
             // 
@@ -250,9 +325,10 @@
             this.Name = "Profil";
             this.Padding = new System.Windows.Forms.Padding(25);
             this.Text = "Profil";
+            this.Load += new System.EventHandler(this.Profil_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -266,7 +342,7 @@
         private CustomComponents.CustomTextbox EmailTextBox;
         private System.Windows.Forms.Label label1;
         private CustomComponents.CustomTextbox PasswordTextBox;
-        private FontAwesome.Sharp.IconButton EditButton;
+        private FontAwesome.Sharp.IconButton UpdateButton;
         private System.Windows.Forms.CheckBox ShowPasswordCheckBox;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Panel panel2;
@@ -274,5 +350,10 @@
         private System.Windows.Forms.ComboBox classComboBox;
         private System.Windows.Forms.Label passwordStrengthLabel;
         private System.Windows.Forms.Panel passwordStrengthPanel;
+        private CustomComponents.CustomTextbox ConfirmPasswordTextBox;
+        private System.Windows.Forms.Label errorMessageLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

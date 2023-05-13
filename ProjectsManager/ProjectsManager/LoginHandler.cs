@@ -10,6 +10,7 @@ namespace ProjectsManager
         private string password { get; set; }
         public string username { get; private set; }
         public string user_role { get; private set; }
+        public int user_id { get; private set; }
 
         #endregion
 
@@ -32,7 +33,6 @@ namespace ProjectsManager
             MySqlCommand cmd = new MySqlCommand(query, DB.connection); // novy command
             cmd.Parameters.AddWithValue("@Name", user_email); // sql injection
             MySqlDataReader reader = cmd.ExecuteReader(); // citac dat
-            int id = 0; // premenna na ulozenie idcka
             string pass = ""; // premenna na ulozenie hesla
             if (!reader.HasRows) // kontrola ci query nevratila prazdnu tabulku
             {
@@ -41,7 +41,7 @@ namespace ProjectsManager
             }
             while (reader.Read()) // citanie dat
             {
-                id = reader.GetInt32("user_id"); // priradenie do premennej podla nazvu stlpca
+                this.user_id = reader.GetInt32("user_id"); // priradenie do premennej podla nazvu stlpca
                 pass = reader.GetString("user_password");
                 this.username = reader.GetString("user_full_name");
                 this.user_role = reader.GetString("user_role");
@@ -49,7 +49,7 @@ namespace ProjectsManager
             if (pass == password) // kontrola ci sa heslo v databaze zhoduje so zadanym heslom
             {
                 reader.Close();
-                return id; // navratova hodnota
+                return this.user_id; // navratova hodnota
             }
             else
             {

@@ -281,6 +281,7 @@
             this.maindatagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.maindatagridview.Size = new System.Drawing.Size(923, 428);
             this.maindatagridview.TabIndex = 0;
+            this.maindatagridview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.maindatagridview_CellDoubleClick);
             this.maindatagridview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.maindatagridview_CellFormatting);
             // 
             // id

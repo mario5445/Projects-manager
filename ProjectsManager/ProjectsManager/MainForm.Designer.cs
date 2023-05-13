@@ -132,6 +132,7 @@
             this.btnprofile.Text = "Profil";
             this.btnprofile.UseVisualStyleBackColor = false;
             this.btnprofile.Click += new System.EventHandler(this.btnprofile_Click);
+            this.btnprofile.MouseHover += new System.EventHandler(this.btnprofile_MouseHover);
             // 
             // btndashboard
             // 

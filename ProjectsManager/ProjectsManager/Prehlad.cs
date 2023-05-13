@@ -13,15 +13,17 @@ namespace ProjectsManager
 {
     public partial class Prehlad : Form
     {
+        private List<ProjectInfo> _projects = new List<ProjectInfo>();
+        private List<int> _openedprojects = new List<int>();
         private DatagridviewHandler gridviewHandler;
         #region Constructor
         public Prehlad()
         {
             InitializeComponent();
             gridviewHandler = new DatagridviewHandler();
-            StyleDatagridview();
             LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
             GetDataForComboboxes();
+            StyleDatagridview();
         }
 
         #endregion
@@ -50,21 +52,6 @@ namespace ProjectsManager
 
             foreach (DataGridViewRow row in maindatagridview.Rows)
             {
-                var cell_student = row.Cells[3]; // student
-                var cell_class = row.Cells[4]; // trieda
-                var cell_department = row.Cells[5]; // odbor
-                if (string.IsNullOrEmpty(cell_student.Value.ToString()))
-                {
-                    row.Cells[3].Value = "-"; // nahradenie hodnoty null
-                }
-                if (string.IsNullOrEmpty(cell_class.Value.ToString()))
-                {
-                    row.Cells[4].Value = "-"; // nahradenie hodnoty null
-                }
-                if (string.IsNullOrEmpty(cell_department.Value.ToString()))
-                {
-                    row.Cells[5].Value = "-"; // nahradenie hodnoty null
-                }
                 var cell = row.Cells[6]; // status
                 cell.Style.ForeColor = Color.White; // nastavenie farby pisma v bunkach stlpca status
                 switch (cell.Value.ToString()) 
@@ -90,7 +77,6 @@ namespace ProjectsManager
         private void LoadDefaultDatagridview(MySqlDataReader reader)
         {
             maindatagridview.Rows.Clear();
-            //maindatagridview.Rows.Clear();
             while (reader.Read()) // citanie 
             {
                 int id = reader.GetInt32("id"); // preberanie hodnoty z readeru
@@ -105,24 +91,6 @@ namespace ProjectsManager
             reader.Close(); // zatvorenie readeru -> IMPORTANT
 
         }
-
-        private void FillDatagridview(MySqlDataReader reader)
-        {
-            maindatagridview.Rows.Clear();
-            while (reader.Read()) // citanie 
-            {
-                int id = reader.GetInt32("id"); // preberanie hodnoty z readeru
-                string name = reader.GetString("name");
-                string teacher = reader.GetString("teacher");
-                string student = reader.GetString("student");
-                string student_class = reader.GetString("student_class");
-                string department = reader.GetString("department");
-                string status = reader.GetString("status");
-                maindatagridview.Rows.Add(new object[] { id, name, teacher, student, student_class, department, status }); // pridanie riadku do Datagridview
-            }
-            reader.Close();
-        }
-
         private void GetTeacherComboboxData()
         {
             teacherCombobox.Items.Add(new ComboItem("Konzultant", 0));
@@ -209,7 +177,7 @@ namespace ProjectsManager
             string project_status = statusCombobox.SelectedIndex != 0 ? statusCombobox.SelectedItem.ToString() : string.Empty;
             string project_student = studentSearch.Texts.Trim();
             string student_class = classCombobox.SelectedIndex != 0 ? classCombobox.SelectedItem.ToString() : string.Empty;
-            string query = gridviewHandler.defaultQuery;
+            string query = DatagridviewHandler.defaultQuery;
             query += " WHERE ";
             if (!string.IsNullOrEmpty(project_name))
             {
@@ -247,6 +215,7 @@ namespace ProjectsManager
                 parameters.Add(new MySqlParameter("@Status", project_status));
                 num++;
             }
+
             if (!string.IsNullOrEmpty(project_student))
             {
                 if (num > 0)
@@ -290,6 +259,27 @@ namespace ProjectsManager
             classCombobox.SelectedIndex = 0;
             studentSearch.Texts = string.Empty;
             LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
+            StyleDatagridview();
+        }
+
+        private void maindatagridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            maindatagridview.CurrentRow.Selected = true;
+            int id = (int)maindatagridview.Rows[e.RowIndex].Cells[0].Value;
+            if (_openedprojects.Contains(id))
+            {
+                return;
+            }
+            if (_projects.Count > 2)
+            {
+                _projects[0].Close();
+                _projects.RemoveAt(0);
+                _openedprojects.RemoveAt(0);
+            }
+            ProjectInfo projectInfo = new ProjectInfo(id);
+            _projects.Add(projectInfo);
+            _openedprojects.Add(id);
+            projectInfo.Show();
         }
     }
 }
