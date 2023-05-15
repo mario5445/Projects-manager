@@ -176,6 +176,7 @@
             this.passwordTextbox.TabIndex = 1;
             this.passwordTextbox.Texts = "";
             this.passwordTextbox.UnderlinedStyle = false;
+            this.passwordTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTextbox_KeyPress);
             // 
             // emailTextbox
             // 

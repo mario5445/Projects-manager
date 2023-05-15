@@ -1,29 +1,33 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProjectsManager
 {
     public partial class Prehlad : Form
     {
-        private List<ProjectInfo> _projects = new List<ProjectInfo>();
+        #region Fields
         private List<int> _openedprojects = new List<int>();
         private DatagridviewHandler gridviewHandler;
+        #endregion
+
+        #region Properties
+        private int user_id {  get; set; }
+        private string user_role { get; set; }
+        #endregion
+
         #region Constructor
-        public Prehlad()
+        public Prehlad(int user_id, string user_role)
         {
             InitializeComponent();
             gridviewHandler = new DatagridviewHandler();
             LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
             GetDataForComboboxes();
             StyleDatagridview();
+            this.user_id = user_id;
+            this.user_role = user_role;
         }
 
         #endregion
@@ -172,7 +176,7 @@ namespace ProjectsManager
                 return;
             }
             string project_name = projectNameSearch.Texts.Trim();
-            string project_teacher = teacherCombobox.SelectedIndex != 0 ? teacherCombobox.SelectedItem.ToString() : string.Empty;
+            int project_teacher = teacherCombobox.SelectedIndex != 0 ? ((ComboItem)teacherCombobox.SelectedItem).Value : 0;
             string project_department = departmentCombobox.SelectedIndex != 0 ? departmentCombobox.SelectedItem.ToString() : string.Empty;
             string project_status = statusCombobox.SelectedIndex != 0 ? statusCombobox.SelectedItem.ToString() : string.Empty;
             string project_student = studentSearch.Texts.Trim();
@@ -185,13 +189,13 @@ namespace ProjectsManager
                 parameters.Add(new MySqlParameter("@Name", "%" + project_name + "%"));
                 num++;
             }
-            if (!string.IsNullOrEmpty(project_teacher))
+            if (project_teacher != 0)
             {
                 if (num > 0)
                 {
                     query += "AND ";
                 }
-                query += "u.user_full_name = @Teacher ";
+                query += "u.user_id = @Teacher ";
                 parameters.Add(new MySqlParameter("@Teacher", project_teacher));
                 num++;
             }
@@ -248,6 +252,7 @@ namespace ProjectsManager
                 return;
             }
             LoadDefaultDatagridview(reader);
+            StyleDatagridview();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -270,14 +275,12 @@ namespace ProjectsManager
             {
                 return;
             }
-            if (_projects.Count > 2)
-            {
-                _projects[0].Close();
-                _projects.RemoveAt(0);
-                _openedprojects.RemoveAt(0);
-            }
-            ProjectInfo projectInfo = new ProjectInfo(id);
-            _projects.Add(projectInfo);
+            ProjectInfo projectInfo = new ProjectInfo(id, this.user_id, this.user_role);
+            projectInfo.FormClosed += (s, k) => { _openedprojects.Remove(projectInfo.Project_id); 
+                LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
+                StyleDatagridview();
+            };
+            
             _openedprojects.Add(id);
             projectInfo.Show();
         }

@@ -97,7 +97,7 @@ namespace ProjectsManager
                 return;
             }
             this.Text = "Prehľad";
-            loadForm(new Prehlad());
+            loadForm(new Prehlad(this.user_id, this.user_role));
             currentForm = "Prehľad";
             if (currentButton != null)
             {

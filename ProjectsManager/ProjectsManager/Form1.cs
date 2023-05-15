@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-
+using System.Windows.Input;
 
 namespace ProjectsManager
 {
@@ -18,6 +18,7 @@ namespace ProjectsManager
         private void Form1_Load(object sender, EventArgs e)
         {
             DB.connect(); // pripojenie sa do databazy
+            this.ActiveControl = null;
         }
 
         private void signInBtn_Click(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace ProjectsManager
             {
                 errorLabel.ForeColor = Color.Red; // nastavenie farby textu chybovej hlasky
                 errorLabel.Text = "Nesprávne heslo alebo email"; // nastavenie textu chybovej hlasky
+                passwordTextbox.Texts = string.Empty;
             }
         }
 
@@ -72,5 +74,13 @@ namespace ProjectsManager
             reg.FormClosed += (s, d) => this.Show();
         }
 
+        private void passwordTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                signInBtn.PerformClick();
+                this.ActiveControl = null;
+            }
+        }
     }
 }

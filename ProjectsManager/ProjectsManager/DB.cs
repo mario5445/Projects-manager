@@ -37,6 +37,13 @@ namespace ProjectsManager
             }
             connection = conn; // priradenie pripojenia do property
         }
+
+        public static void ExecuteQuery(string query)
+        {
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         #endregion
     }
 }

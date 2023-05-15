@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelside = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btntemporary = new FontAwesome.Sharp.IconButton();
@@ -132,6 +133,7 @@
             this.btnprofile.Text = "Profil";
             this.btnprofile.UseVisualStyleBackColor = false;
             this.btnprofile.Click += new System.EventHandler(this.btnprofile_Click);
+            this.btnprofile.MouseLeave += new System.EventHandler(this.btnprofile_MouseLeave);
             this.btnprofile.MouseHover += new System.EventHandler(this.btnprofile_MouseHover);
             // 
             // btndashboard
@@ -186,6 +188,7 @@
             this.Controls.Add(this.panelheader);
             this.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
