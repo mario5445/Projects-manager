@@ -35,6 +35,7 @@ namespace ProjectsManager
             this.username = username;
             this.user_id = user_id;
             this.user_role = user_role;
+            LogOutButton.IconChar = IconChar.RightFromBracket;
         }
 
         #endregion
@@ -172,6 +173,33 @@ namespace ProjectsManager
             {
                 btnprofile.BackColor = Color.Indigo;
             }
+        }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Chcete sa naozaj odhlásiť?", "odhlásenie", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+            this.Close();
+            
+        }
+
+        private void btntemporary_Click(object sender, EventArgs e)
+        {
+            if (currentForm == "Pridat")
+            {
+                return;
+            }
+            this.Text = "Pridať";
+            loadForm(new AddProject());
+            currentForm = "Pridat";
+            if (currentButton != null)
+            {
+                removeCurrentBtnProperties(currentButton);
+            }
+            currentButton = btntemporary;
+            setCurrentBtnProperties(currentButton);
         }
     }
 }

@@ -37,6 +37,7 @@
             this.btndashboard = new FontAwesome.Sharp.IconButton();
             this.panelheader = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.panelside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.Color.Indigo;
+            this.panelside.Controls.Add(this.LogOutButton);
             this.panelside.Controls.Add(this.iconPictureBox1);
             this.panelside.Controls.Add(this.btntemporary);
             this.panelside.Controls.Add(this.btnreports);
@@ -76,7 +78,7 @@
             this.btntemporary.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntemporary.FlatAppearance.BorderSize = 0;
             this.btntemporary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btntemporary.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btntemporary.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btntemporary.ForeColor = System.Drawing.Color.White;
             this.btntemporary.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
             this.btntemporary.IconColor = System.Drawing.Color.White;
@@ -88,8 +90,9 @@
             this.btntemporary.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btntemporary.Size = new System.Drawing.Size(200, 35);
             this.btntemporary.TabIndex = 2;
-            this.btntemporary.Text = "+1";
+            this.btntemporary.Text = "Pridať projekt";
             this.btntemporary.UseVisualStyleBackColor = false;
+            this.btntemporary.Click += new System.EventHandler(this.btntemporary_Click);
             // 
             // btnreports
             // 
@@ -178,6 +181,28 @@
             this.mainpanel.Size = new System.Drawing.Size(961, 599);
             this.mainpanel.TabIndex = 2;
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.BackColor = System.Drawing.Color.Transparent;
+            this.LogOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogOutButton.FlatAppearance.BorderSize = 0;
+            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogOutButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.LogOutButton.ForeColor = System.Drawing.Color.White;
+            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.LogOutButton.IconColor = System.Drawing.Color.White;
+            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogOutButton.IconSize = 24;
+            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogOutButton.Location = new System.Drawing.Point(0, 564);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.LogOutButton.Size = new System.Drawing.Size(200, 35);
+            this.LogOutButton.TabIndex = 8;
+            this.LogOutButton.Text = "Odhlásiť sa";
+            this.LogOutButton.UseVisualStyleBackColor = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -209,5 +234,6 @@
         private FontAwesome.Sharp.IconButton btnprofile;
         private FontAwesome.Sharp.IconButton btndashboard;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconButton LogOutButton;
     }
 }
