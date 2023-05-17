@@ -87,6 +87,7 @@
             this.btnExport.TabIndex = 8;
             this.btnExport.Text = "Exportovať";
             this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnRefresh
             // 

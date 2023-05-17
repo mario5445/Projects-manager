@@ -11,6 +11,7 @@ namespace ProjectsManager
         #region Fields
         private List<int> _openedprojects = new List<int>();
         private DatagridviewHandler gridviewHandler;
+        private bool exportShowed = false;
         #endregion
 
         #region Properties
@@ -283,6 +284,22 @@ namespace ProjectsManager
             
             _openedprojects.Add(id);
             projectInfo.Show();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (maindatagridview.Rows.Count < 1)
+            {
+                return;
+            }
+            if (exportShowed)
+            {
+                return;
+            }
+            ExportDialog dialog = new ExportDialog(maindatagridview);
+            dialog.Show();
+            exportShowed = true;
+            dialog.FormClosed += (l, k) => { exportShowed = false; };
         }
     }
 }

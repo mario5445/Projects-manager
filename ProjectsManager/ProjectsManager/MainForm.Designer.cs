@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelside = new System.Windows.Forms.Panel();
+            this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btntemporary = new FontAwesome.Sharp.IconButton();
             this.btnreports = new FontAwesome.Sharp.IconButton();
@@ -37,7 +38,6 @@
             this.btndashboard = new FontAwesome.Sharp.IconButton();
             this.panelheader = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.panelside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,28 @@
             this.panelside.Name = "panelside";
             this.panelside.Size = new System.Drawing.Size(200, 599);
             this.panelside.TabIndex = 0;
+            // 
+            // LogOutButton
+            // 
+            this.LogOutButton.BackColor = System.Drawing.Color.Transparent;
+            this.LogOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogOutButton.FlatAppearance.BorderSize = 0;
+            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogOutButton.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.LogOutButton.ForeColor = System.Drawing.Color.White;
+            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
+            this.LogOutButton.IconColor = System.Drawing.Color.White;
+            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogOutButton.IconSize = 24;
+            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LogOutButton.Location = new System.Drawing.Point(0, 564);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.LogOutButton.Size = new System.Drawing.Size(200, 35);
+            this.LogOutButton.TabIndex = 8;
+            this.LogOutButton.Text = "Odhlásiť sa";
+            this.LogOutButton.UseVisualStyleBackColor = false;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // iconPictureBox1
             // 
@@ -78,7 +100,7 @@
             this.btntemporary.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntemporary.FlatAppearance.BorderSize = 0;
             this.btntemporary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btntemporary.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btntemporary.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
             this.btntemporary.ForeColor = System.Drawing.Color.White;
             this.btntemporary.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
             this.btntemporary.IconColor = System.Drawing.Color.White;
@@ -180,28 +202,6 @@
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(961, 599);
             this.mainpanel.TabIndex = 2;
-            // 
-            // LogOutButton
-            // 
-            this.LogOutButton.BackColor = System.Drawing.Color.Transparent;
-            this.LogOutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogOutButton.FlatAppearance.BorderSize = 0;
-            this.LogOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogOutButton.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LogOutButton.ForeColor = System.Drawing.Color.White;
-            this.LogOutButton.IconChar = FontAwesome.Sharp.IconChar.RightToBracket;
-            this.LogOutButton.IconColor = System.Drawing.Color.White;
-            this.LogOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogOutButton.IconSize = 24;
-            this.LogOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LogOutButton.Location = new System.Drawing.Point(0, 564);
-            this.LogOutButton.Name = "LogOutButton";
-            this.LogOutButton.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.LogOutButton.Size = new System.Drawing.Size(200, 35);
-            this.LogOutButton.TabIndex = 8;
-            this.LogOutButton.Text = "Odhlásiť sa";
-            this.LogOutButton.UseVisualStyleBackColor = false;
-            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
             // MainForm
             // 

@@ -14,7 +14,9 @@ namespace ProjectsManager
 
         #region Properties
         private int user_id { get; set; }
-        private string user_email {get; set;}
+        private string user_email { get; set;}
+        private string user_password { get; set;}
+        private string user_role { get; set;}
         #endregion
 
         #region Constructor
@@ -57,21 +59,28 @@ namespace ProjectsManager
             while (dataReader.Read())
             {
                 string username = dataReader.GetString("user_full_name");
-                string password = dataReader.GetString("user_password");
+                this.user_password = dataReader.GetString("user_password");
                 this.user_email = dataReader.GetString("user_email");
-                string user_role = dataReader.GetString("user_role");
+                this.user_role = dataReader.GetString("user_role");
                 int user_class = !dataReader.IsDBNull(4) ? dataReader.GetInt32("user_class") : 0;
                 NameTextBox.Texts = username;
-                PasswordTextBox.Texts = password;
                 EmailTextBox.Texts = this.user_email;
                 classComboBox.SelectedIndex = user_class;
                 ConfirmPasswordTextBox.Texts = string.Empty;
+                PasswordTextBox.Texts = string.Empty;
+                oldPasswordBox.Texts = string.Empty;
             }
             dataReader.Close();
         }
 
         private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            if (oldPasswordBox.Texts.Trim() == string.Empty && oldPasswordBox.PlaceholderText.Trim() != string.Empty)
+            {
+                return;
+            }
+            oldPasswordBox.PasswordChar = ShowPasswordCheckBox.Checked ? false : true;
+
             if (PasswordTextBox.PlaceholderText.Trim() != string.Empty && PasswordTextBox.Texts.Trim() == string.Empty)
             {
                 return;
@@ -142,6 +151,13 @@ namespace ProjectsManager
                 MessageBox.Show("Vyplňte prosím všetky polia");
                 return;
             }
+            if (oldPasswordBox.Texts != this.user_password)
+            {
+                errorMessageLabel.ForeColor = Color.Red;
+                errorMessageLabel.Text = "Staré heslo sa nezhoduj!";
+                oldPasswordBox.Texts = string.Empty;
+                return;
+            }
             string name = NameTextBox.Texts.Trim();
             string email = EmailTextBox.Texts.Trim();
             string password = PasswordTextBox.Texts.Trim();
@@ -162,7 +178,7 @@ namespace ProjectsManager
                 return;
             }
             this.user_email = email;
-            handler.UpdateUser(new User(this.user_id, name, email, password, "Študent", user_class));
+            handler.UpdateUser(new User(this.user_id, name, email, password, this.user_role, user_class));
             MessageBox.Show("Profil úspešne aktualizovaný");
             OnFormLoad();
         }
