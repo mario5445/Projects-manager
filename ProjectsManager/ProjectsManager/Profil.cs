@@ -154,7 +154,7 @@ namespace ProjectsManager
             if (oldPasswordBox.Texts != this.user_password)
             {
                 errorMessageLabel.ForeColor = Color.Red;
-                errorMessageLabel.Text = "Staré heslo sa nezhoduj!";
+                errorMessageLabel.Text = "Staré heslo sa nezhoduje!";
                 oldPasswordBox.Texts = string.Empty;
                 return;
             }

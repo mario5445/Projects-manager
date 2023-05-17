@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.DescriptionRTB = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.UpdateButton = new FontAwesome.Sharp.IconButton();
-            this.customTextbox1 = new ProjectsManager.CustomComponents.CustomTextbox();
+            this.departmentCombobox = new System.Windows.Forms.ComboBox();
+            this.AddButton = new FontAwesome.Sharp.IconButton();
+            this.NameTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,16 +60,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Pridať projekt";
             // 
-            // richTextBox1
+            // DescriptionRTB
             // 
-            this.richTextBox1.AutoWordSelection = true;
-            this.richTextBox1.BackColor = System.Drawing.Color.White;
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(459, 157);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(437, 331);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.DescriptionRTB.AutoWordSelection = true;
+            this.DescriptionRTB.BackColor = System.Drawing.Color.White;
+            this.DescriptionRTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DescriptionRTB.Location = new System.Drawing.Point(459, 157);
+            this.DescriptionRTB.Name = "DescriptionRTB";
+            this.DescriptionRTB.Size = new System.Drawing.Size(437, 331);
+            this.DescriptionRTB.TabIndex = 3;
+            this.DescriptionRTB.Text = "";
             // 
             // label2
             // 
@@ -81,74 +81,77 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Popis";
             // 
-            // comboBox1
+            // departmentCombobox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.ForeColor = System.Drawing.Color.Indigo;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(80, 258);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(324, 27);
-            this.comboBox1.TabIndex = 5;
+            this.departmentCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.departmentCombobox.ForeColor = System.Drawing.Color.Indigo;
+            this.departmentCombobox.FormattingEnabled = true;
+            this.departmentCombobox.Location = new System.Drawing.Point(80, 258);
+            this.departmentCombobox.Name = "departmentCombobox";
+            this.departmentCombobox.Size = new System.Drawing.Size(324, 27);
+            this.departmentCombobox.TabIndex = 5;
             // 
-            // UpdateButton
+            // AddButton
             // 
-            this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateButton.AutoSize = true;
-            this.UpdateButton.BackColor = System.Drawing.Color.Green;
-            this.UpdateButton.FlatAppearance.BorderSize = 0;
-            this.UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UpdateButton.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.UpdateButton.ForeColor = System.Drawing.Color.White;
-            this.UpdateButton.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
-            this.UpdateButton.IconColor = System.Drawing.Color.White;
-            this.UpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.UpdateButton.IconSize = 30;
-            this.UpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UpdateButton.Location = new System.Drawing.Point(80, 449);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.UpdateButton.Size = new System.Drawing.Size(232, 39);
-            this.UpdateButton.TabIndex = 16;
-            this.UpdateButton.Text = "Pridať";
-            this.UpdateButton.UseVisualStyleBackColor = false;
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddButton.AutoSize = true;
+            this.AddButton.BackColor = System.Drawing.Color.Green;
+            this.AddButton.FlatAppearance.BorderSize = 0;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.IconChar = FontAwesome.Sharp.IconChar.NotesMedical;
+            this.AddButton.IconColor = System.Drawing.Color.White;
+            this.AddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AddButton.IconSize = 30;
+            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddButton.Location = new System.Drawing.Point(80, 449);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.AddButton.Size = new System.Drawing.Size(232, 39);
+            this.AddButton.TabIndex = 16;
+            this.AddButton.Text = "Pridať";
+            this.AddButton.UseVisualStyleBackColor = false;
+            this.AddButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // customTextbox1
+            // NameTextBox
             // 
-            this.customTextbox1.BackColor = System.Drawing.Color.White;
-            this.customTextbox1.BorderColor = System.Drawing.Color.DarkGray;
-            this.customTextbox1.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.customTextbox1.BorderSize = 1;
-            this.customTextbox1.ForeColor = System.Drawing.Color.DimGray;
-            this.customTextbox1.Location = new System.Drawing.Point(80, 148);
-            this.customTextbox1.MinimumSize = new System.Drawing.Size(0, 20);
-            this.customTextbox1.Multiline = false;
-            this.customTextbox1.Name = "customTextbox1";
-            this.customTextbox1.Padding = new System.Windows.Forms.Padding(7);
-            this.customTextbox1.PasswordChar = false;
-            this.customTextbox1.PlaceholderColor = System.Drawing.Color.Gray;
-            this.customTextbox1.PlaceholderText = "Názov";
-            this.customTextbox1.Size = new System.Drawing.Size(324, 30);
-            this.customTextbox1.TabIndex = 2;
-            this.customTextbox1.Texts = "";
-            this.customTextbox1.UnderlinedStyle = false;
+            this.NameTextBox.BackColor = System.Drawing.Color.White;
+            this.NameTextBox.BorderColor = System.Drawing.Color.DarkGray;
+            this.NameTextBox.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.NameTextBox.BorderSize = 1;
+            this.NameTextBox.ForeColor = System.Drawing.Color.Indigo;
+            this.NameTextBox.Location = new System.Drawing.Point(80, 157);
+            this.NameTextBox.MinimumSize = new System.Drawing.Size(0, 20);
+            this.NameTextBox.Multiline = false;
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Padding = new System.Windows.Forms.Padding(7);
+            this.NameTextBox.PasswordChar = false;
+            this.NameTextBox.PlaceholderColor = System.Drawing.Color.Gray;
+            this.NameTextBox.PlaceholderText = "Názov";
+            this.NameTextBox.Size = new System.Drawing.Size(324, 30);
+            this.NameTextBox.TabIndex = 2;
+            this.NameTextBox.Texts = "";
+            this.NameTextBox.UnderlinedStyle = false;
+            this.NameTextBox._TextChanged += new System.EventHandler(this.customTextbox1__TextChanged);
             // 
             // AddProject
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(961, 599);
-            this.Controls.Add(this.UpdateButton);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.departmentCombobox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.customTextbox1);
+            this.Controls.Add(this.DescriptionRTB);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddProject";
             this.Text = "AddProject";
+            this.Load += new System.EventHandler(this.AddProject_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -160,10 +163,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private CustomComponents.CustomTextbox customTextbox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private CustomComponents.CustomTextbox NameTextBox;
+        private System.Windows.Forms.RichTextBox DescriptionRTB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private FontAwesome.Sharp.IconButton UpdateButton;
+        private System.Windows.Forms.ComboBox departmentCombobox;
+        private FontAwesome.Sharp.IconButton AddButton;
     }
 }

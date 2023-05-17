@@ -51,7 +51,7 @@
             // excelExport
             // 
             this.excelExport.AutoSize = true;
-            this.excelExport.Location = new System.Drawing.Point(115, 27);
+            this.excelExport.Location = new System.Drawing.Point(110, 27);
             this.excelExport.Name = "excelExport";
             this.excelExport.Size = new System.Drawing.Size(63, 23);
             this.excelExport.TabIndex = 1;
@@ -62,7 +62,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 31);
+            this.label1.ForeColor = System.Drawing.Color.Indigo;
+            this.label1.Location = new System.Drawing.Point(132, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 19);
             this.label1.TabIndex = 2;

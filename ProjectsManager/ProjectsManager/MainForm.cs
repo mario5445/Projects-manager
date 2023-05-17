@@ -192,7 +192,7 @@ namespace ProjectsManager
                 return;
             }
             this.Text = "Pridať";
-            loadForm(new AddProject());
+            loadForm(new AddProject(this.user_id));
             currentForm = "Pridat";
             if (currentButton != null)
             {
