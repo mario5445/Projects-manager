@@ -37,7 +37,6 @@ C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.CustomComponents.CustomTextbox.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.MainForm.resources
-C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Oznamenia.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Prehlad.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Profil.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.PlaceholderFormForMainForm.resources
@@ -142,3 +141,7 @@ C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\bin\Debug\Newtonsoft.Json.xml
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\bin\Debug\System.ValueTuple.xml
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.MyProjects.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Statistics.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.AddUser.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.SettingsForm.resources

@@ -34,5 +34,15 @@ namespace ProjectsManager
             Role = role;
             User_class = user_class;
         }
+
+        public User(int ID, string name, string email, string password, string role)
+        {
+            this.ID = ID;
+            Name = name;
+            Email = email;
+            Password = password;
+            Role = role;
+            User_class = 0;
+        }
     }
 }

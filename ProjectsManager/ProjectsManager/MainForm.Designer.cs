@@ -30,14 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelside = new System.Windows.Forms.Panel();
+            this.btnStatistics = new FontAwesome.Sharp.IconButton();
             this.LogOutButton = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btntemporary = new FontAwesome.Sharp.IconButton();
-            this.btnreports = new FontAwesome.Sharp.IconButton();
+            this.btnMyProjects = new FontAwesome.Sharp.IconButton();
             this.btnprofile = new FontAwesome.Sharp.IconButton();
             this.btndashboard = new FontAwesome.Sharp.IconButton();
             this.panelheader = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.btnSettings = new FontAwesome.Sharp.IconButton();
             this.panelside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -45,10 +47,12 @@
             // panelside
             // 
             this.panelside.BackColor = System.Drawing.Color.Indigo;
+            this.panelside.Controls.Add(this.btnSettings);
+            this.panelside.Controls.Add(this.btnStatistics);
             this.panelside.Controls.Add(this.LogOutButton);
             this.panelside.Controls.Add(this.iconPictureBox1);
             this.panelside.Controls.Add(this.btntemporary);
-            this.panelside.Controls.Add(this.btnreports);
+            this.panelside.Controls.Add(this.btnMyProjects);
             this.panelside.Controls.Add(this.btnprofile);
             this.panelside.Controls.Add(this.btndashboard);
             this.panelside.Dock = System.Windows.Forms.DockStyle.Left;
@@ -56,6 +60,28 @@
             this.panelside.Name = "panelside";
             this.panelside.Size = new System.Drawing.Size(200, 599);
             this.panelside.TabIndex = 0;
+            // 
+            // btnStatistics
+            // 
+            this.btnStatistics.BackColor = System.Drawing.Color.Transparent;
+            this.btnStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatistics.FlatAppearance.BorderSize = 0;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.btnStatistics.ForeColor = System.Drawing.Color.White;
+            this.btnStatistics.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
+            this.btnStatistics.IconColor = System.Drawing.Color.White;
+            this.btnStatistics.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnStatistics.IconSize = 24;
+            this.btnStatistics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStatistics.Location = new System.Drawing.Point(0, 242);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnStatistics.Size = new System.Drawing.Size(200, 35);
+            this.btnStatistics.TabIndex = 9;
+            this.btnStatistics.Text = "Štatistiky";
+            this.btnStatistics.UseVisualStyleBackColor = false;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // LogOutButton
             // 
@@ -78,6 +104,8 @@
             this.LogOutButton.Text = "Odhlásiť sa";
             this.LogOutButton.UseVisualStyleBackColor = false;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            this.LogOutButton.MouseLeave += new System.EventHandler(this.LogOutButton_MouseLeave);
+            this.LogOutButton.MouseHover += new System.EventHandler(this.LogOutButton_MouseHover);
             // 
             // iconPictureBox1
             // 
@@ -107,7 +135,7 @@
             this.btntemporary.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btntemporary.IconSize = 24;
             this.btntemporary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btntemporary.Location = new System.Drawing.Point(0, 216);
+            this.btntemporary.Location = new System.Drawing.Point(0, 283);
             this.btntemporary.Name = "btntemporary";
             this.btntemporary.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btntemporary.Size = new System.Drawing.Size(200, 35);
@@ -115,27 +143,30 @@
             this.btntemporary.Text = "Pridať projekt";
             this.btntemporary.UseVisualStyleBackColor = false;
             this.btntemporary.Click += new System.EventHandler(this.btntemporary_Click);
+            this.btntemporary.MouseLeave += new System.EventHandler(this.btntemporary_MouseLeave);
+            this.btntemporary.MouseHover += new System.EventHandler(this.btntemporary_MouseHover);
             // 
-            // btnreports
+            // btnMyProjects
             // 
-            this.btnreports.BackColor = System.Drawing.Color.Transparent;
-            this.btnreports.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnreports.FlatAppearance.BorderSize = 0;
-            this.btnreports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnreports.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
-            this.btnreports.ForeColor = System.Drawing.Color.White;
-            this.btnreports.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
-            this.btnreports.IconColor = System.Drawing.Color.White;
-            this.btnreports.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnreports.IconSize = 24;
-            this.btnreports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnreports.Location = new System.Drawing.Point(0, 180);
-            this.btnreports.Name = "btnreports";
-            this.btnreports.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnreports.Size = new System.Drawing.Size(200, 37);
-            this.btnreports.TabIndex = 1;
-            this.btnreports.Text = "Moje projekty";
-            this.btnreports.UseVisualStyleBackColor = false;
+            this.btnMyProjects.BackColor = System.Drawing.Color.Transparent;
+            this.btnMyProjects.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMyProjects.FlatAppearance.BorderSize = 0;
+            this.btnMyProjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyProjects.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.btnMyProjects.ForeColor = System.Drawing.Color.White;
+            this.btnMyProjects.IconChar = FontAwesome.Sharp.IconChar.AddressCard;
+            this.btnMyProjects.IconColor = System.Drawing.Color.White;
+            this.btnMyProjects.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMyProjects.IconSize = 24;
+            this.btnMyProjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMyProjects.Location = new System.Drawing.Point(0, 199);
+            this.btnMyProjects.Name = "btnMyProjects";
+            this.btnMyProjects.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnMyProjects.Size = new System.Drawing.Size(200, 37);
+            this.btnMyProjects.TabIndex = 1;
+            this.btnMyProjects.Text = "Moje projekty";
+            this.btnMyProjects.UseVisualStyleBackColor = false;
+            this.btnMyProjects.Click += new System.EventHandler(this.btnMyProjects_Click);
             // 
             // btnprofile
             // 
@@ -150,7 +181,7 @@
             this.btnprofile.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnprofile.IconSize = 24;
             this.btnprofile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnprofile.Location = new System.Drawing.Point(0, 144);
+            this.btnprofile.Location = new System.Drawing.Point(0, 154);
             this.btnprofile.Name = "btnprofile";
             this.btnprofile.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnprofile.Size = new System.Drawing.Size(200, 39);
@@ -203,6 +234,30 @@
             this.mainpanel.Size = new System.Drawing.Size(961, 599);
             this.mainpanel.TabIndex = 2;
             // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.Enabled = false;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.IconChar = FontAwesome.Sharp.IconChar.Gears;
+            this.btnSettings.IconColor = System.Drawing.Color.White;
+            this.btnSettings.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSettings.IconSize = 24;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(0, 324);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnSettings.Size = new System.Drawing.Size(200, 35);
+            this.btnSettings.TabIndex = 10;
+            this.btnSettings.Text = "Nastavenia";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Visible = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -218,6 +273,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hlavné menu";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelside.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -230,10 +286,12 @@
         private System.Windows.Forms.Panel panelheader;
         private System.Windows.Forms.Panel mainpanel;
         private FontAwesome.Sharp.IconButton btntemporary;
-        private FontAwesome.Sharp.IconButton btnreports;
+        private FontAwesome.Sharp.IconButton btnMyProjects;
         private FontAwesome.Sharp.IconButton btnprofile;
         private FontAwesome.Sharp.IconButton btndashboard;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton LogOutButton;
+        private FontAwesome.Sharp.IconButton btnStatistics;
+        private FontAwesome.Sharp.IconButton btnSettings;
     }
 }

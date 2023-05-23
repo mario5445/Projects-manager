@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,7 @@ namespace ProjectsManager
             this.user_id = user_id;
             this.user_role = user_role;
             LogOutButton.IconChar = IconChar.RightFromBracket;
+            
         }
 
         #endregion
@@ -98,7 +100,7 @@ namespace ProjectsManager
                 return;
             }
             this.Text = "Prehľad";
-            loadForm(new Prehlad(this.user_id, this.user_role));
+            loadForm(new Prehlad(this.user_id, this.user_role, DashboardType.Classic));
             currentForm = "Prehľad";
             if (currentButton != null)
             {
@@ -110,18 +112,18 @@ namespace ProjectsManager
 
         private void btndashboard_MouseHover(object sender, EventArgs e)
         {
-            if (currentButton != btndashboard)
-            {
-                btndashboard.BackColor = Color.FromArgb(152, 15, 255);
-            }
+            //if (currentButton != btndashboard)
+            //{
+            //    btndashboard.BackColor = Color.FromArgb(152, 15, 255);
+            //}
         }
 
         private void btndashboard_MouseLeave(object sender, EventArgs e)
         {
-            if (currentButton != btndashboard)
-            {
-                btndashboard.BackColor = Color.Indigo;
-            }
+            //if (currentButton != btndashboard)
+            //{
+            //    btndashboard.BackColor = Color.Indigo;
+            //}
         }
 
         private void iconPictureBox2_Click(object sender, EventArgs e)
@@ -140,7 +142,7 @@ namespace ProjectsManager
             currentForm = null;
             currentButton = null;
         }
-        #endregion
+        
 
         private void btnprofile_Click(object sender, EventArgs e)
         {
@@ -161,23 +163,23 @@ namespace ProjectsManager
 
         private void btnprofile_MouseHover(object sender, EventArgs e)
         {
-            if (currentButton != btnprofile)
-            {
-                btnprofile.BackColor = Color.FromArgb(152, 15, 255);
-            }
+            //if (currentButton != btnprofile)
+            //{
+            //    btnprofile.BackColor = Color.FromArgb(152, 15, 255);
+            //}
         }
 
         private void btnprofile_MouseLeave(object sender, EventArgs e)
         {
-            if (currentButton != btnprofile)
-            {
-                btnprofile.BackColor = Color.Indigo;
-            }
+            //if (currentButton != btnprofile)
+            //{
+            //    btnprofile.BackColor = Color.Indigo;
+            //}
         }
 
         private void LogOutButton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Chcete sa naozaj odhlásiť?", "odhlásenie", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("Chcete sa naozaj odhlásiť?", "Odhlásenie", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 return;
             }
@@ -187,18 +189,168 @@ namespace ProjectsManager
 
         private void btntemporary_Click(object sender, EventArgs e)
         {
-            if (currentForm == "Pridat")
+            if (this.user_role == "Učiteľ")
+            {
+                if (currentForm == "Pridat")
+                {
+                    return;
+                }
+                this.Text = "Pridať";
+                loadForm(new AddProject(this.user_id));
+                currentForm = "Pridat";
+                if (currentButton != null)
+                {
+                    removeCurrentBtnProperties(currentButton);
+                }
+                currentButton = btntemporary;
+                setCurrentBtnProperties(currentButton);
+            }
+            else if (this.user_role == "Admin")
+            {
+                if (currentForm == "Pridat_Uzivatela")
+                {
+                    return;
+                }
+                this.Text = "Pridať užívateľa";
+                loadForm(new AddUser());
+                currentForm = "Pridat_Uzivatela";
+                if (currentButton != null)
+                {
+                    removeCurrentBtnProperties(currentButton);
+                }
+                currentButton = btntemporary;
+                setCurrentBtnProperties(currentButton);
+            }
+        }
+
+        private void btntemporary_MouseHover(object sender, EventArgs e)
+        {
+            //if (currentButton != btntemporary)
+            //{
+            //    btntemporary.BackColor = Color.FromArgb(152, 15, 255);
+            //}
+        }
+
+        private void btntemporary_MouseLeave(object sender, EventArgs e)
+        {
+            //if (currentButton != btntemporary)
+            //{
+            //    btntemporary.BackColor = Color.Indigo;
+            //}
+        }
+
+        private void LogOutButton_MouseHover(object sender, EventArgs e)
+        {
+            //LogOutButton.BackColor = Color.FromArgb(152, 15, 255);
+        }
+
+        private void LogOutButton_MouseLeave(object sender, EventArgs e)
+        {
+            //LogOutButton.BackColor = Color.Indigo;
+        }
+
+        private void btnMyProjects_Click(object sender, EventArgs e)
+        {
+            if (currentForm == "MyProjects")
             {
                 return;
             }
-            this.Text = "Pridať";
-            loadForm(new AddProject(this.user_id));
-            currentForm = "Pridat";
+
+            if (this.user_role == "Učiteľ")
+            {
+                this.Text = "Moje projekty";
+                loadForm(new Prehlad(this.user_id, this.user_role, DashboardType.MyProjects));
+                currentForm = "MyProjects";
+                if (currentButton != null)
+                {
+                    removeCurrentBtnProperties(currentButton);
+                }
+                currentButton = btnMyProjects;
+                setCurrentBtnProperties(currentButton);
+            }
+            else if (this.user_role == "Študent")
+            {
+                this.Text = "Môj projekt";
+                string query = $"SELECT project_id FROM projects WHERE project_student = {this.user_id}";
+                MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int project_id = 0;
+                    while (reader.Read())
+                    {
+                        project_id = reader.GetInt32("project_id");
+                    }
+                    reader.Close();
+                    ProjectInfo info = new ProjectInfo(project_id, user_id, user_role);
+                    info.FormBorderStyle = FormBorderStyle.None;
+                    loadForm(info);
+                    currentForm = "MyProjects";
+                    if (currentButton != null)
+                    {
+                        removeCurrentBtnProperties(currentButton);
+                    }
+                    currentButton = btnMyProjects;
+                    setCurrentBtnProperties(currentButton);
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+        #endregion
+
+        private void btnStatistics_Click(object sender, EventArgs e)
+        {
+            if (currentForm == "Statistics")
+            {
+                return;
+            }
+            this.Text = "Štatistiky";
+            loadForm(new Statistics());
+            currentForm = "Statistics";
             if (currentButton != null)
             {
                 removeCurrentBtnProperties(currentButton);
             }
-            currentButton = btntemporary;
+            currentButton = btnStatistics;
+            setCurrentBtnProperties(currentButton);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (this.user_role == "Študent")
+            {
+                btnMyProjects.Text = "Môj projekt";
+                btntemporary.Enabled = false;
+                btntemporary.Visible = false;
+            }
+            if (this.user_role == "Admin")
+            {
+                btnMyProjects.Enabled = false;
+                btnMyProjects.Visible = false;
+                btntemporary.Text = "Pridať užívateľa";
+                btntemporary.IconChar = IconChar.UserPlus;
+                btnSettings.Visible = true;
+                btnSettings.Enabled = true;
+            }
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            if (currentForm == "Settings")
+            {
+                return;
+            }
+            this.Text = "Nastavenia";
+            loadForm(new SettingsForm());
+            currentForm = "Settings";
+            if (currentButton != null)
+            {
+                removeCurrentBtnProperties(currentButton);
+            }
+            currentButton = btnSettings;
             setCurrentBtnProperties(currentButton);
         }
     }

@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.oldPasswordBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorMessageLabel = new System.Windows.Forms.Label();
@@ -45,7 +46,7 @@
             this.PasswordTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.UpdateButton = new FontAwesome.Sharp.IconButton();
             this.NameTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
-            this.oldPasswordBox = new ProjectsManager.CustomComponents.CustomTextbox();
+            this.classLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -89,6 +90,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.classLabel);
             this.panel3.Controls.Add(this.oldPasswordBox);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
@@ -108,6 +110,27 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(714, 549);
             this.panel3.TabIndex = 19;
+            // 
+            // oldPasswordBox
+            // 
+            this.oldPasswordBox.BackColor = System.Drawing.Color.White;
+            this.oldPasswordBox.BorderColor = System.Drawing.Color.DarkGray;
+            this.oldPasswordBox.BorderFocusColor = System.Drawing.Color.Indigo;
+            this.oldPasswordBox.BorderSize = 1;
+            this.oldPasswordBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.oldPasswordBox.ForeColor = System.Drawing.Color.Indigo;
+            this.oldPasswordBox.Location = new System.Drawing.Point(169, 233);
+            this.oldPasswordBox.MinimumSize = new System.Drawing.Size(0, 23);
+            this.oldPasswordBox.Multiline = false;
+            this.oldPasswordBox.Name = "oldPasswordBox";
+            this.oldPasswordBox.Padding = new System.Windows.Forms.Padding(7);
+            this.oldPasswordBox.PasswordChar = true;
+            this.oldPasswordBox.PlaceholderColor = System.Drawing.Color.Gray;
+            this.oldPasswordBox.PlaceholderText = "Staré heslo";
+            this.oldPasswordBox.Size = new System.Drawing.Size(380, 37);
+            this.oldPasswordBox.TabIndex = 25;
+            this.oldPasswordBox.Texts = "";
+            this.oldPasswordBox.UnderlinedStyle = false;
             // 
             // label3
             // 
@@ -163,7 +186,7 @@
             // passwordStrengthLabel
             // 
             this.passwordStrengthLabel.AutoSize = true;
-            this.passwordStrengthLabel.Location = new System.Drawing.Point(574, 280);
+            this.passwordStrengthLabel.Location = new System.Drawing.Point(573, 278);
             this.passwordStrengthLabel.Name = "passwordStrengthLabel";
             this.passwordStrengthLabel.Size = new System.Drawing.Size(10, 13);
             this.passwordStrengthLabel.TabIndex = 19;
@@ -172,7 +195,7 @@
             // passwordStrengthPanel
             // 
             this.passwordStrengthPanel.BackColor = System.Drawing.Color.White;
-            this.passwordStrengthPanel.Location = new System.Drawing.Point(577, 304);
+            this.passwordStrengthPanel.Location = new System.Drawing.Point(576, 302);
             this.passwordStrengthPanel.Name = "passwordStrengthPanel";
             this.passwordStrengthPanel.Size = new System.Drawing.Size(91, 11);
             this.passwordStrengthPanel.TabIndex = 18;
@@ -303,26 +326,15 @@
             this.NameTextBox.Texts = "";
             this.NameTextBox.UnderlinedStyle = false;
             // 
-            // oldPasswordBox
+            // classLabel
             // 
-            this.oldPasswordBox.BackColor = System.Drawing.Color.White;
-            this.oldPasswordBox.BorderColor = System.Drawing.Color.DarkGray;
-            this.oldPasswordBox.BorderFocusColor = System.Drawing.Color.Indigo;
-            this.oldPasswordBox.BorderSize = 1;
-            this.oldPasswordBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.oldPasswordBox.ForeColor = System.Drawing.Color.Indigo;
-            this.oldPasswordBox.Location = new System.Drawing.Point(169, 233);
-            this.oldPasswordBox.MinimumSize = new System.Drawing.Size(0, 23);
-            this.oldPasswordBox.Multiline = false;
-            this.oldPasswordBox.Name = "oldPasswordBox";
-            this.oldPasswordBox.Padding = new System.Windows.Forms.Padding(7);
-            this.oldPasswordBox.PasswordChar = true;
-            this.oldPasswordBox.PlaceholderColor = System.Drawing.Color.Gray;
-            this.oldPasswordBox.PlaceholderText = "Staré heslo";
-            this.oldPasswordBox.Size = new System.Drawing.Size(380, 37);
-            this.oldPasswordBox.TabIndex = 25;
-            this.oldPasswordBox.Texts = "";
-            this.oldPasswordBox.UnderlinedStyle = false;
+            this.classLabel.AutoSize = true;
+            this.classLabel.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.classLabel.Location = new System.Drawing.Point(561, 91);
+            this.classLabel.Name = "classLabel";
+            this.classLabel.Size = new System.Drawing.Size(67, 22);
+            this.classLabel.TabIndex = 26;
+            this.classLabel.Text = "Trieda";
             // 
             // Profil
             // 
@@ -365,5 +377,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private CustomComponents.CustomTextbox oldPasswordBox;
+        private System.Windows.Forms.Label classLabel;
     }
 }

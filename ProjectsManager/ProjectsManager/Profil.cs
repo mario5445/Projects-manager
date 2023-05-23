@@ -33,7 +33,6 @@ namespace ProjectsManager
         {
             NameTextBox.ForeColor = Color.Indigo;
             classComboBox.Items.Clear();
-            classComboBox.Items.Add(new ComboItem("Trieda", 0));
             string classes_query = "SELECT class_id, class_name FROM classes ORDER BY class_id ASC;";
             MySqlCommand cmd = new MySqlCommand(classes_query, DB.connection);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -62,13 +61,20 @@ namespace ProjectsManager
                 this.user_password = dataReader.GetString("user_password");
                 this.user_email = dataReader.GetString("user_email");
                 this.user_role = dataReader.GetString("user_role");
+                if (user_role == "Učiteľ" || user_role == "Admin")
+                {
+                    classLabel.Visible = false;
+                    classLabel.Enabled = false;
+                }
                 int user_class = !dataReader.IsDBNull(4) ? dataReader.GetInt32("user_class") : 0;
                 NameTextBox.Texts = username;
                 EmailTextBox.Texts = this.user_email;
-                classComboBox.SelectedIndex = user_class;
+                classComboBox.SelectedIndex = user_class - 1;
                 ConfirmPasswordTextBox.Texts = string.Empty;
                 PasswordTextBox.Texts = string.Empty;
                 oldPasswordBox.Texts = string.Empty;
+                classComboBox.Enabled = user_role == "Študent" ? true : false;
+                classComboBox.Visible = user_role == "Študent" ? true : false;
             }
             dataReader.Close();
         }
@@ -146,8 +152,8 @@ namespace ProjectsManager
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            if (NameTextBox.Texts.Trim() == string.Empty || EmailTextBox.Texts.Trim() == string.Empty || PasswordTextBox.Texts.Trim() == string.Empty || ConfirmPasswordTextBox.Texts.Trim() == string.Empty || classComboBox.SelectedIndex == 0)
-            {
+            if (NameTextBox.Texts.Trim() == string.Empty || EmailTextBox.Texts.Trim() == string.Empty || PasswordTextBox.Texts.Trim() == string.Empty || ConfirmPasswordTextBox.Texts.Trim() == string.Empty)
+            {  
                 MessageBox.Show("Vyplňte prosím všetky polia");
                 return;
             }
@@ -160,7 +166,7 @@ namespace ProjectsManager
             }
             string name = NameTextBox.Texts.Trim();
             string email = EmailTextBox.Texts.Trim();
-            string password = PasswordTextBox.Texts.Trim();
+            string password = ConfirmPasswordTextBox.Texts.Trim();
             int user_class = ((ComboItem)classComboBox.SelectedItem).Value;
 
             if (email != this.user_email)
@@ -178,7 +184,14 @@ namespace ProjectsManager
                 return;
             }
             this.user_email = email;
-            handler.UpdateUser(new User(this.user_id, name, email, password, this.user_role, user_class));
+            if (this.user_role == "Študent")
+            {
+                handler.UpdateUser(new User(this.user_id, name, email, password, this.user_role, user_class));
+            }
+            else
+            {
+                handler.UpdateTeacher(new User(this.user_id, name, email, password, user_role));
+            }
             MessageBox.Show("Profil úspešne aktualizovaný");
             OnFormLoad();
         }

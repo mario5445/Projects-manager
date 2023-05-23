@@ -27,9 +27,10 @@ namespace ProjectsManager
 
         public void InsertUser(User user)
         {
-            string query = $"INSERT INTO users(user_full_name, user_email, user_password, user_role, user_class) VALUES (@Name, @Email, @Password, '{user.Role}', {user.User_class})";
+            string query = $"INSERT INTO users(user_full_name, user_email, user_password, user_role, user_class) VALUES (@Name, @Email, @Password, 'Študent', {user.User_class})";
             MySqlCommand cmd = new MySqlCommand( query, DB.connection);
-            cmd.Parameters.AddWithValue("@Name", user.Name);
+            string name = user.Name;
+            cmd.Parameters.AddWithValue("@Name", name);
             cmd.Parameters.AddWithValue("@Email", user.Email);
             cmd.Parameters.AddWithValue("@Password", user.Password);
             cmd.ExecuteNonQuery();
@@ -43,6 +44,26 @@ namespace ProjectsManager
             cmd.Parameters.AddWithValue("@Email", user.Email);
             cmd.Parameters.AddWithValue("@Password", user.Password);
             cmd.Parameters.AddWithValue("@Class", user.User_class);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void UpdateTeacher(User user)
+        {
+            string query = $"UPDATE users SET user_full_name = @Name, user_email = @Email, user_password = @Password WHERE user_id = {user.ID}";
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.ExecuteNonQuery();
+        }
+
+        public void InsertTeacher(User user)
+        {
+            string query = $"INSERT INTO users(user_full_name, user_email, user_password, user_role) VALUES (@Name, @Email, @Password, 'Učiteľ')";
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            cmd.Parameters.AddWithValue("@Name", user.Name);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
             cmd.ExecuteNonQuery();
         }
 

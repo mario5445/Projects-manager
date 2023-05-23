@@ -55,6 +55,12 @@ namespace ProjectsManager
                 ZapisatButton.Visible = false;
                 ZapisatButton.Enabled = false;
             }
+            if (this.User_role == "Admin")
+            {
+                ZapisatButton.Cursor = Cursors.Arrow;
+                ZapisatButton.Visible = false;
+                ZapisatButton.Enabled = false;
+            }
         }
 
         private void ProjectInfo_Load(object sender, EventArgs e)
@@ -102,7 +108,7 @@ namespace ProjectsManager
 
                 this.Text = project_name;
 
-                if (this.User_id != teacher_id)
+                if (this.User_id != teacher_id && this.User_role != "Admin")
                 {
                     EditButton.Cursor = Cursors.Arrow;
                     EditButton.Visible = false;
@@ -119,7 +125,6 @@ namespace ProjectsManager
                     approveButton.Enabled = false;
                     denyButton.Visible = false;
                     denyButton.Enabled = false;
-                    this.Height = 40;
                 }
                 else
                 {
@@ -155,7 +160,7 @@ namespace ProjectsManager
                     
 
                 }
-                else if (this.User_id != student_id && this.User_id != teacher_id)
+                else if (this.User_id != student_id && this.User_id != teacher_id && this.User_role != "Admin")
                 {
                     this.Height = 420;
                 }
@@ -206,7 +211,7 @@ namespace ProjectsManager
                             consultations.Enabled = false;
                             this.Height = 420;
                         }
-                        if (this.User_id == teacher_id)
+                        if (this.User_id == teacher_id || this.User_role == "Admin")
                         {
                             approveButton.Enabled = true;
                             approveButton.Visible = true;
@@ -218,6 +223,20 @@ namespace ProjectsManager
                         break;
                     default:
                         break;
+                }
+                if (this.User_role == "Admin")
+                {
+                    EditButton.Cursor = Cursors.Hand;
+                    EditButton.Visible = true;
+                    EditButton.Enabled = true;
+                    DeleteButton.Cursor = Cursors.Hand;
+                    DeleteButton.Visible = true;
+                    DeleteButton.Enabled = true;
+                    departmentCombobox.Visible = true;
+                    departmentCombobox.Cursor = Cursors.Hand;
+                    departmentCombobox.Enabled = true;
+                    consultations.Enabled = true;
+                    consultations.Visible = true;
                 }
             }
             reader.Close();

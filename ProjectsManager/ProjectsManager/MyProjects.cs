@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjectsManager
 {
-    public partial class Oznamenia : Form
+    public partial class MyProjects : Form
     {
-        public Oznamenia()
+        public MyProjects()
         {
             InitializeComponent();
         }

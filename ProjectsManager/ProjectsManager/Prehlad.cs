@@ -17,18 +17,29 @@ namespace ProjectsManager
         #region Properties
         private int user_id {  get; set; }
         private string user_role { get; set; }
+        private DashboardType type1 { get; set; }
         #endregion
 
         #region Constructor
-        public Prehlad(int user_id, string user_role)
+        public Prehlad(int user_id, string user_role, DashboardType type)
         {
             InitializeComponent();
             gridviewHandler = new DatagridviewHandler();
-            LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
-            GetDataForComboboxes();
-            StyleDatagridview();
             this.user_id = user_id;
             this.user_role = user_role;
+            this.type1 = type;
+            if (type1 == DashboardType.Classic)
+            {
+                LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
+            }
+            else
+            {
+                LoadDefaultDatagridview(gridviewHandler.GetDataReaderForUserProjects(this.user_id));
+                teacherCombobox.Enabled = false;
+                teacherCombobox.Visible = false;
+            }
+            GetDataForComboboxes();
+            StyleDatagridview();
         }
 
         #endregion
@@ -183,6 +194,10 @@ namespace ProjectsManager
             string project_student = studentSearch.Texts.Trim();
             string student_class = classCombobox.SelectedIndex != 0 ? classCombobox.SelectedItem.ToString() : string.Empty;
             string query = DatagridviewHandler.defaultQuery;
+            if (this.type1 == DashboardType.MyProjects)
+            {
+                project_teacher = this.user_id;
+            }
             query += " WHERE ";
             if (!string.IsNullOrEmpty(project_name))
             {
@@ -264,14 +279,29 @@ namespace ProjectsManager
             statusCombobox.SelectedIndex = 0;
             classCombobox.SelectedIndex = 0;
             studentSearch.Texts = string.Empty;
-            LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
+            if (this.type1 == DashboardType.Classic)
+            {
+                LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
+            }
+            else
+            {
+                LoadDefaultDatagridview(gridviewHandler.GetDataReaderForUserProjects(this.user_id));
+            }
             StyleDatagridview();
         }
 
         private void maindatagridview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             maindatagridview.CurrentRow.Selected = true;
-            int id = (int)maindatagridview.Rows[e.RowIndex].Cells[0].Value;
+            int id = 0;
+            try { 
+                id = (int)maindatagridview.Rows[e.RowIndex].Cells[0].Value;
+            }
+            catch (Exception)
+            {
+                return;
+            }
             if (_openedprojects.Contains(id))
             {
                 return;

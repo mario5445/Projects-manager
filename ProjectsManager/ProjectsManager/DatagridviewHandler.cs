@@ -34,6 +34,29 @@ namespace ProjectsManager
             return reader;
         }  
 
+        public MySqlDataReader GetDataReaderForUserProjects(int user_id)
+        {
+            MySqlCommand cmd = new MySqlCommand(query + $" WHERE u.user_id = {user_id}", DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+        public MySqlDataReader GetDataReaderForClasses()
+        {
+            string query = "SELECT * FROM classes ORDER BY class_id ASC";
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+        public MySqlDataReader GetDataReaderForDepartments()
+        {
+            string query = "SELECT * FROM departments ORDER BY department_id ASC";
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
         #endregion
     }
 }

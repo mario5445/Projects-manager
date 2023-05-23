@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class Oznamenia
+    partial class MyProjects
     {
         /// <summary>
         /// Required designer variable.

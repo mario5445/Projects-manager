@@ -121,13 +121,20 @@ namespace ProjectsManager
 
                     for (int i = 1; i < data.Columns.Count + 1; i++)
                     {
-                        worksheet.Cells[1, i] = data.Columns[i - 1].HeaderText;
+                        if (i != 1)
+                        {
+                            worksheet.Cells[1, i] = data.Columns[i - 1].HeaderText;
+                        }
                     }
                     for (int i = 0; i < data.Rows.Count; i++)
                     {
                         for (int j = 0; j < data.Columns.Count; j++)
                         {
-                            worksheet.Cells[i + 2, j + 1] = data.Rows[i].Cells[j].Value.ToString();
+                            if (j != 0)
+                            {
+                                worksheet.Cells[i + 2, j + 1] = data.Rows[i].Cells[j].Value.ToString();
+                            }
+                            
                         }
                     }
                     workbook.SaveAs(saveFileDialog.FileName, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
