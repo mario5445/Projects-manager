@@ -40,6 +40,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.passwordTextbox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.emailTextbox = new ProjectsManager.CustomComponents.CustomTextbox();
+            this.forgetPasswordLabel = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -150,6 +151,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.forgetPasswordLabel);
             this.panel2.Controls.Add(this.signInBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(375, 0);
@@ -200,6 +202,18 @@
             this.emailTextbox.Texts = "";
             this.emailTextbox.UnderlinedStyle = false;
             // 
+            // forgetPasswordLabel
+            // 
+            this.forgetPasswordLabel.AutoSize = true;
+            this.forgetPasswordLabel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.forgetPasswordLabel.Location = new System.Drawing.Point(13, 408);
+            this.forgetPasswordLabel.Name = "forgetPasswordLabel";
+            this.forgetPasswordLabel.Size = new System.Drawing.Size(133, 19);
+            this.forgetPasswordLabel.TabIndex = 3;
+            this.forgetPasswordLabel.TabStop = true;
+            this.forgetPasswordLabel.Text = "Zabudli ste heslo?";
+            this.forgetPasswordLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgetPasswordLabel_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +239,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,6 +258,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private System.Windows.Forms.LinkLabel forgetPasswordLabel;
     }
 }
 

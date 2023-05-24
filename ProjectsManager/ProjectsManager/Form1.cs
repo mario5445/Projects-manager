@@ -5,7 +5,7 @@ using System.Net;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Microsoft.VisualBasic;
-using MySqlX.XDevAPI.Relational;
+using MySql.Data.MySqlClient;
 
 namespace ProjectsManager
 {
@@ -85,6 +85,45 @@ namespace ProjectsManager
                 signInBtn.PerformClick();
                 this.ActiveControl = null;
             }
+        }
+
+        private void forgetPasswordLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string email = Interaction.InputBox("Zadajte email, ktorým ste sa registrovali", "Obnova hesla", string.Empty, -1, -1);
+            if (email.Length < 1)
+            {
+                return;
+            }
+            RegistrationHandler handler = new RegistrationHandler();
+            if (!handler.EmailExists(email))
+            {
+                MessageBox.Show("Zadaný email neexsituje");
+                return;
+            }
+            string query = $"SELECT user_password FROM users WHERE user_email = '{email}'";
+            MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            string password = "";
+            while (reader.Read())
+            {
+                password = reader.GetString("user_password");
+            }
+            reader.Close();
+            MailMessage mail = new MailMessage();
+            mail.To.Add(email);
+            mail.From = new MailAddress("mario.lastovica228@gmail.com", "No replay"); //pošiljatelj (vedno enak)
+            mail.Subject = "Obnova hesla pre portál SOŠ SPŠ IT KNM";
+            mail.Body = "<h1>Obnova hesla</h1><br>" +
+                $"<p>Vaše heslo je: {password}<p>";  
+            mail.IsBodyHtml = true;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof"); // Enter seders User name and password  
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
         }
     }
 }
