@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.Net.Mail;
+using System.Net;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Microsoft.VisualBasic;
+using MySqlX.XDevAPI.Relational;
 
 namespace ProjectsManager
 {

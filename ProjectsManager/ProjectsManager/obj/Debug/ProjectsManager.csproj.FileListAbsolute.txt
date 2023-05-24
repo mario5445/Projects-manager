@@ -145,3 +145,5 @@ C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Statistics.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.AddUser.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.SettingsForm.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.UsersDashboard.resources
+C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.UserEditForm.resources

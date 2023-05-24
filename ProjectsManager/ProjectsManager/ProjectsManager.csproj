@@ -224,6 +224,18 @@
     <Compile Include="Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserEditForm.Designer.cs">
+      <DependentUpon>UserEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersDashboard.Designer.cs">
+      <DependentUpon>UsersDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UtilityClasses\ComboItem.cs" />
     <Compile Include="UtilityClasses\DashboardType.cs" />
     <Compile Include="UtilityClasses\User.cs" />
@@ -278,6 +290,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEditForm.resx">
+      <DependentUpon>UserEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersDashboard.resx">
+      <DependentUpon>UsersDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

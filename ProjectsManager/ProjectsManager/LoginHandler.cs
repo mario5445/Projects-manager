@@ -58,6 +58,11 @@ namespace ProjectsManager
             }
         }
 
+        public void EmailUser()
+        {
+
+        }
+
         #endregion
     }
 }

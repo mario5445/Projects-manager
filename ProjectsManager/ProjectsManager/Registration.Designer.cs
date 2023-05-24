@@ -60,6 +60,7 @@
             // BackToLoginButton
             // 
             this.BackToLoginButton.BackColor = System.Drawing.Color.Indigo;
+            this.BackToLoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BackToLoginButton.FlatAppearance.BorderSize = 0;
             this.BackToLoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BackToLoginButton.ForeColor = System.Drawing.Color.White;
@@ -99,6 +100,7 @@
             // RegistrationButton
             // 
             this.RegistrationButton.BackColor = System.Drawing.Color.Indigo;
+            this.RegistrationButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistrationButton.FlatAppearance.BorderSize = 0;
             this.RegistrationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegistrationButton.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -114,7 +116,7 @@
             // ShowPasswordCheckBox
             // 
             this.ShowPasswordCheckBox.AutoSize = true;
-            this.ShowPasswordCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.ShowPasswordCheckBox.BackColor = System.Drawing.Color.White;
             this.ShowPasswordCheckBox.Font = new System.Drawing.Font("Cambria", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ShowPasswordCheckBox.Location = new System.Drawing.Point(272, 347);
             this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
@@ -251,6 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(931, 507);
             this.Controls.Add(this.classComboBox);
             this.Controls.Add(this.errorMessageLabel);

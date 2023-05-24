@@ -322,14 +322,9 @@ namespace ProjectsManager
             {
                 return;
             }
-            if (exportShowed)
-            {
-                return;
-            }
             ExportDialog dialog = new ExportDialog(maindatagridview);
-            dialog.Show();
-            exportShowed = true;
-            dialog.FormClosed += (l, k) => { exportShowed = false; };
+            dialog.StartPosition = FormStartPosition.CenterScreen;
+            dialog.ShowDialog();
         }
     }
 }

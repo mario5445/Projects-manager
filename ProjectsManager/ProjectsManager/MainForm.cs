@@ -271,7 +271,7 @@ namespace ProjectsManager
             else if (this.user_role == "Študent")
             {
                 this.Text = "Môj projekt";
-                string query = $"SELECT project_id FROM projects WHERE project_student = {this.user_id}";
+                string query = $"SELECT project_id FROM projects WHERE project_student = {this.user_id} LIMIT 1";
                 MySqlCommand cmd = new MySqlCommand(query, DB.connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.HasRows)
@@ -297,6 +297,18 @@ namespace ProjectsManager
                 {
                     return;
                 }
+            }
+            else
+            {
+                this.Text = "Užívatelia";
+                loadForm(new UsersDashboard());
+                currentForm = "MyProjects";
+                if (currentButton != null)
+                {
+                    removeCurrentBtnProperties(currentButton);
+                }
+                currentButton = btnMyProjects;
+                setCurrentBtnProperties(currentButton);
             }
         }
         #endregion
@@ -328,8 +340,8 @@ namespace ProjectsManager
             }
             if (this.user_role == "Admin")
             {
-                btnMyProjects.Enabled = false;
-                btnMyProjects.Visible = false;
+                btnMyProjects.Text = "Užívatelia";
+                btnMyProjects.IconChar = IconChar.User;
                 btntemporary.Text = "Pridať užívateľa";
                 btntemporary.IconChar = IconChar.UserPlus;
                 btnSettings.Visible = true;
