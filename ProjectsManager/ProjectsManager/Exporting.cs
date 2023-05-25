@@ -54,20 +54,23 @@ namespace ProjectsManager
                         pdfPTable.WidthPercentage = 100;
                         pdfPTable.HorizontalAlignment = Element.ALIGN_LEFT;
 
-                        /*
-                        string ARIALUNI_TFF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALUNI.TTF");
+
+                        string ARIALUNI_TFF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIAL.TTF");
 
                         //Create a base font object making sure to specify IDENTITY-H
                         BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 
                         //Create a specific font object
                         Font f = new Font(bf, 12, Font.NORMAL);
-                        */
+
+                        //Font FONT = FontFactory.GetFont("ARIAL", 12F);
+                        //BaseFont bf = BaseFont.CreateFont(FONT.ToString(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                        //Font fon = new Font(bf, 12, Font.NORMAL);
                         foreach (DataGridViewColumn column in data.Columns)
                         {
                             if (column.Index != 0)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText/*, f*/));
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, f));
                                 pdfPTable.AddCell(cell);
                             }
                         }
@@ -78,7 +81,7 @@ namespace ProjectsManager
                             {
                                 if (cell.ColumnIndex != 0)
                                 {
-                                    PdfPCell cell_p = new PdfPCell(new Phrase(cell.Value.ToString()/*, f*/));
+                                    PdfPCell cell_p = new PdfPCell(new Phrase(cell.Value.ToString(), f));
                                     pdfPTable.AddCell(cell_p);
                                 }
                             }
