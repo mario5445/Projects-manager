@@ -149,6 +149,7 @@
             this.projectNameTxtbox.Font = new System.Drawing.Font("Cambria", 24.75F);
             this.projectNameTxtbox.ForeColor = System.Drawing.Color.White;
             this.projectNameTxtbox.Location = new System.Drawing.Point(5, 0);
+            this.projectNameTxtbox.MaxLength = 128;
             this.projectNameTxtbox.Name = "projectNameTxtbox";
             this.projectNameTxtbox.ReadOnly = true;
             this.projectNameTxtbox.Size = new System.Drawing.Size(692, 39);

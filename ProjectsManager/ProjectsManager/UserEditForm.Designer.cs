@@ -80,7 +80,7 @@
             this.emailTextbox.BorderSize = 1;
             this.emailTextbox.ForeColor = System.Drawing.Color.Indigo;
             this.emailTextbox.Location = new System.Drawing.Point(59, 208);
-            this.emailTextbox.MinimumSize = new System.Drawing.Size(0, 20);
+            this.emailTextbox.MinimumSize = new System.Drawing.Size(0, 14);
             this.emailTextbox.Multiline = false;
             this.emailTextbox.Name = "emailTextbox";
             this.emailTextbox.Padding = new System.Windows.Forms.Padding(7);
@@ -109,7 +109,7 @@
             this.passwordTextbox.BorderSize = 1;
             this.passwordTextbox.ForeColor = System.Drawing.Color.Indigo;
             this.passwordTextbox.Location = new System.Drawing.Point(345, 74);
-            this.passwordTextbox.MinimumSize = new System.Drawing.Size(0, 20);
+            this.passwordTextbox.MinimumSize = new System.Drawing.Size(0, 14);
             this.passwordTextbox.Multiline = false;
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.Padding = new System.Windows.Forms.Padding(7);
@@ -138,7 +138,7 @@
             this.confirmPasswordTextbox.BorderSize = 1;
             this.confirmPasswordTextbox.ForeColor = System.Drawing.Color.Indigo;
             this.confirmPasswordTextbox.Location = new System.Drawing.Point(345, 208);
-            this.confirmPasswordTextbox.MinimumSize = new System.Drawing.Size(0, 20);
+            this.confirmPasswordTextbox.MinimumSize = new System.Drawing.Size(0, 14);
             this.confirmPasswordTextbox.Multiline = false;
             this.confirmPasswordTextbox.Name = "confirmPasswordTextbox";
             this.confirmPasswordTextbox.Padding = new System.Windows.Forms.Padding(7);
@@ -207,7 +207,7 @@
             // classLabel
             // 
             this.classLabel.AutoSize = true;
-            this.classLabel.Location = new System.Drawing.Point(59, 256);
+            this.classLabel.Location = new System.Drawing.Point(55, 257);
             this.classLabel.Name = "classLabel";
             this.classLabel.Size = new System.Drawing.Size(53, 19);
             this.classLabel.TabIndex = 17;

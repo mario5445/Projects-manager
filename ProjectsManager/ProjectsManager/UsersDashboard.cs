@@ -176,8 +176,8 @@ namespace ProjectsManager
                 return;
             }
             UserEditForm form = new UserEditForm(id, role);
-            form.ShowDialog();
             form.FormClosed += (d, o) => LoadData(handler.GetDataReaderOfUsers());
+            form.ShowDialog();
         }
     }
 }

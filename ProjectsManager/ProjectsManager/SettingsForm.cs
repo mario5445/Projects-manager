@@ -98,6 +98,11 @@ namespace ProjectsManager
         private void AddClassBtn_Click(object sender, EventArgs e)
         {
             string class_name = AddClassTextbox.Texts.Trim();
+            if (class_name.Length >= 8)
+            {
+                MessageBox.Show("Názov triedy je príliš dlhý");
+                return;
+            }
             if (class_name == string.Empty)
             {
                 return;
@@ -118,6 +123,11 @@ namespace ProjectsManager
         private void AddDepartmentBtn_Click(object sender, EventArgs e)
         {
             string dep_name = AddClassTextbox.Texts.Trim();
+            if (dep_name.Length >= 64)
+            {
+                MessageBox.Show("Názov odboru je príliš dlhý");
+                return;
+            }
             if (dep_name == string.Empty)
             {
                 return;
@@ -166,6 +176,11 @@ namespace ProjectsManager
             {
                 return;
             }
+            else if (class_name.Length >= 8)
+            {
+                MessageBox.Show("Názov triedy je príliš dlhý");
+                return;
+            }
             string query = $"UPDATE classes SET class_name = @Name WHERE class_id = {id}";
             MySqlCommand cmd = new MySqlCommand(query, DB.connection);
             cmd.Parameters.AddWithValue("@Name", class_name);
@@ -189,6 +204,11 @@ namespace ProjectsManager
             string dep_name = Interaction.InputBox("Zadajte nový názov odboru", "Zmena názvu", row.Cells[1].Value.ToString(), -1, -1);
             if (dep_name.Length < 1)
             {
+                return;
+            }
+            else if (dep_name.Length >= 64)
+            {
+                MessageBox.Show("Názov odboru je príliš dlhý");
                 return;
             }
             string query = $"UPDATE departments SET department_name = @Name WHERE department_id = {id}";

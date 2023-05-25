@@ -54,6 +54,7 @@ namespace ProjectsManager
                         pdfPTable.WidthPercentage = 100;
                         pdfPTable.HorizontalAlignment = Element.ALIGN_LEFT;
 
+                        /*
                         string ARIALUNI_TFF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "ARIALUNI.TTF");
 
                         //Create a base font object making sure to specify IDENTITY-H
@@ -61,12 +62,12 @@ namespace ProjectsManager
 
                         //Create a specific font object
                         Font f = new Font(bf, 12, Font.NORMAL);
-
+                        */
                         foreach (DataGridViewColumn column in data.Columns)
                         {
                             if (column.Index != 0)
                             {
-                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, f));
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText/*, f*/));
                                 pdfPTable.AddCell(cell);
                             }
                         }
@@ -77,7 +78,7 @@ namespace ProjectsManager
                             {
                                 if (cell.ColumnIndex != 0)
                                 {
-                                    PdfPCell cell_p = new PdfPCell(new Phrase(cell.Value.ToString(), f));
+                                    PdfPCell cell_p = new PdfPCell(new Phrase(cell.Value.ToString()/*, f*/));
                                     pdfPTable.AddCell(cell_p);
                                 }
                             }

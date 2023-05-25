@@ -307,13 +307,9 @@ namespace ProjectsManager
                 return;
             }
             ProjectInfo projectInfo = new ProjectInfo(id, this.user_id, this.user_role);
-            projectInfo.FormClosed += (s, k) => { _openedprojects.Remove(projectInfo.Project_id); 
-                LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects());
-                StyleDatagridview();
-            };
-            
-            _openedprojects.Add(id);
-            projectInfo.Show();
+            projectInfo.StartPosition = FormStartPosition.CenterScreen;
+            projectInfo.FormClosed += (d, k) => { LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects()); StyleDatagridview(); };
+            projectInfo.ShowDialog();
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -324,6 +320,7 @@ namespace ProjectsManager
             }
             ExportDialog dialog = new ExportDialog(maindatagridview);
             dialog.StartPosition = FormStartPosition.CenterScreen;
+            
             dialog.ShowDialog();
         }
     }

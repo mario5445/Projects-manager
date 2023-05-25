@@ -111,7 +111,7 @@ namespace ProjectsManager
             reader.Close();
             MailMessage mail = new MailMessage();
             mail.To.Add(email);
-            mail.From = new MailAddress("mario.lastovica228@gmail.com", "No replay"); //pošiljatelj (vedno enak)
+            mail.From = new MailAddress("mario.lastovica228@gmail.com", "No reply"); //pošiljatelj (vedno enak)
             mail.Subject = "Obnova hesla pre portál SOŠ SPŠ IT KNM";
             mail.Body = "<h1>Obnova hesla</h1><br>" +
                 $"<p>Vaše heslo je: {password}<p>";  

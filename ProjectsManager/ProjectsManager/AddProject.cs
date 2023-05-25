@@ -22,7 +22,7 @@ namespace ProjectsManager
 
         private void customTextbox1__TextChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         private void getDataForComboBox()
@@ -47,6 +47,11 @@ namespace ProjectsManager
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            if (NameTextBox.Texts.Trim().Length >= 128)
+            {
+                MessageBox.Show("Názov je príliš dlhý");
+                return;
+            }
 
             if (NameTextBox.Texts.Trim() == string.Empty || DescriptionRTB.Text.Trim() == string.Empty || departmentCombobox.SelectedIndex == 0)
             {

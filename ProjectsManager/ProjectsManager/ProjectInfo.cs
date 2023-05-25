@@ -195,7 +195,7 @@ namespace ProjectsManager
                         approveButton.Visible = false;
                         denyButton.Visible = false;
                         denyButton.Enabled = false;
-                        if (this.User_id == teacher_id || this.User_id == student_id)
+                        if (this.User_id == teacher_id || this.User_id == student_id || this.User_role == "Admin")
                         {
                             consultations.Enabled = true;
                             consultations.Visible = true;
@@ -235,8 +235,6 @@ namespace ProjectsManager
                     departmentCombobox.Visible = true;
                     departmentCombobox.Cursor = Cursors.Hand;
                     departmentCombobox.Enabled = true;
-                    consultations.Enabled = true;
-                    consultations.Visible = true;
                 }
             }
             reader.Close();

@@ -104,6 +104,21 @@ namespace ProjectsManager
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
+            if (nameTextbox.Texts.Trim().Length >= 32)
+            {
+                MessageBox.Show("Meno je príliš dlhé");
+                return;
+            }
+            if (emailTextbox.Texts.Trim().Length >= 255)
+            {
+                MessageBox.Show("Email je príliš veľký");
+                return;
+            }
+            if (passwordTextbox.Texts.Trim().Length >= 60)
+            {
+                MessageBox.Show("Heslo je príliš dlhé");
+                return;
+            }
             RegistrationHandler handler = new RegistrationHandler();
             string name = nameTextbox.Texts.Trim();
             string email = emailTextbox.Texts.Trim();

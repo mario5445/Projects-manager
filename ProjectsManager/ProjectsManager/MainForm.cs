@@ -295,6 +295,8 @@ namespace ProjectsManager
                 }
                 else
                 {
+                    MessageBox.Show("Nemáte ešte žiaden projekt");
+                    reader.Close();
                     return;
                 }
             }

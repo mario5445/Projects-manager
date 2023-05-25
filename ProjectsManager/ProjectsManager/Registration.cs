@@ -57,6 +57,21 @@ namespace ProjectsManager
 
         private void RegistrationButton_Click(object sender, EventArgs e)
         {
+            if (NameTextBox.Texts.Trim().Length >= 32)
+            {
+                MessageBox.Show("Meno je príliš dlhé");
+                return;
+            }
+            if (EmailTextBox.Texts.Trim().Length >= 255)
+            {
+                MessageBox.Show("Email je príliš veľký");
+                return;
+            }
+            if (PasswordTextBox.Texts.Trim().Length >= 60)
+            {
+                MessageBox.Show("Heslo je príliš dlhé");
+                return;
+            }
             if (NameTextBox.Texts.Trim() == string.Empty || EmailTextBox.Texts.Trim() == string.Empty || PasswordTextBox.Texts.Trim() == string.Empty || ConfirmPasswordTextBox.Texts.Trim() == string.Empty || classComboBox.SelectedIndex == 0)
             {
                 MessageBox.Show("Vyplňte prosím všetky polia");
