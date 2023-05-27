@@ -11,6 +11,7 @@ namespace ProjectsManager
 {
     public partial class Form1 : Form
     {
+        private bool InternetConnection = true;
         #region Constructor
         public Form1()
         {
@@ -23,8 +24,10 @@ namespace ProjectsManager
         {
             if (!DB.checkInternetConnection())
             {
+                InternetConnection = false;
                 MessageBox.Show("Žiadne internetové pripojenie");
-                Application.Exit();
+                Environment.Exit(0);
+                
             }
             DB.connect(); // pripojenie sa do databazy
             this.ActiveControl = null;
@@ -68,8 +71,11 @@ namespace ProjectsManager
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DB.connection.Close(); // odpojenie od databazy
-            DB.connection.Dispose(); 
+            if (InternetConnection)
+            {
+                DB.connection.Close(); // odpojenie od databazy
+                DB.connection.Dispose();
+            }
         }
         #endregion
 
@@ -116,7 +122,7 @@ namespace ProjectsManager
             reader.Close();
             MailMessage mail = new MailMessage();
             mail.To.Add(email);
-            mail.From = new MailAddress("mario.lastovica228@gmail.com", "No reply"); //pošiljatelj (vedno enak)
+            mail.From = new MailAddress("mario.lastovica228@gmail.com", "No reply"); 
             mail.Subject = "Obnova hesla pre portál SOŠ SPŠ IT KNM";
             mail.Body = "<h1>Obnova hesla</h1><br>" +
                 $"<p>Vaše heslo je: {password}<p>";  
@@ -126,7 +132,7 @@ namespace ProjectsManager
             smtp.Host = "smtp.gmail.com";
             smtp.Port = 587;
             smtp.UseDefaultCredentials = true;
-            smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof"); // Enter seders User name and password  
+            smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof"); 
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }
