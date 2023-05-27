@@ -73,7 +73,6 @@ C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.CustomComponents.CustomTextbox.resources
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Form1.resources
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.MainForm.resources
-C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Oznamenia.resources
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.PlaceholderFormForMainForm.resources
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Prehlad.resources
 C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Profil.resources
@@ -147,3 +146,9 @@ C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.SettingsForm.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.UsersDashboard.resources
 C:\Users\Lenovo\Desktop\GitHub\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.UserEditForm.resources
+C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.AddUser.resources
+C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.MyProjects.resources
+C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.SettingsForm.resources
+C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.Statistics.resources
+C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.UserEditForm.resources
+C:\_Jarino\Škola\Programovanie\Projects-manager\ProjectsManager\ProjectsManager\obj\Debug\ProjectsManager.UsersDashboard.resources

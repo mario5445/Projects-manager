@@ -154,7 +154,7 @@ namespace ProjectsManager
             {
                 return;
             }
-            string query = $"DELETE FROM classes WHERE class_id = {maindatagridview.Rows[index].Cells[0].Value}";
+            string query = $"DELETE FROM users WHERE user_id = {maindatagridview.Rows[index].Cells[0].Value}";
             MySqlCommand cmd = new MySqlCommand(query, DB.connection);
             cmd.ExecuteNonQuery();
             LoadData(handler.GetDataReaderOfUsers());

@@ -21,6 +21,11 @@ namespace ProjectsManager
         #region Events
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (!DB.checkInternetConnection())
+            {
+                MessageBox.Show("Žiadne internetové pripojenie");
+                Application.Exit();
+            }
             DB.connect(); // pripojenie sa do databazy
             this.ActiveControl = null;
         }
