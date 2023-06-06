@@ -37,6 +37,13 @@ namespace ProjectsManager
 
         private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            if (!ShowPasswordCheckBox.Checked)
+            {
+                if (PasswordTextBox.Texts.Trim() == string.Empty )
+                {
+
+                }
+            }
             if (PasswordTextBox.PlaceholderText.Trim() != string.Empty && PasswordTextBox.Texts.Trim() == string.Empty)
             {
                 return;
@@ -52,7 +59,14 @@ namespace ProjectsManager
 
         private void ConfirmPasswordTextBox__TextChanged(object sender, EventArgs e)
         {
-
+            if (ShowPasswordCheckBox.Checked)
+            {
+                ConfirmPasswordTextBox.PasswordChar = false;
+            }
+            else
+            {
+                ConfirmPasswordTextBox.PasswordChar = true;
+            }
         }
 
         private void RegistrationButton_Click(object sender, EventArgs e)
@@ -128,7 +142,10 @@ namespace ProjectsManager
             if (ShowPasswordCheckBox.Checked)
             {
                 PasswordTextBox.PasswordChar = false;
-                ConfirmPasswordTextBox.PasswordChar = false;
+            }
+            else
+            {
+                PasswordTextBox.PasswordChar = true;
             }
             string password = PasswordTextBox.Texts.Trim();
             if (password == string.Empty)

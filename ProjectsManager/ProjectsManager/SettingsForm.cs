@@ -171,7 +171,7 @@ namespace ProjectsManager
             {
                 return;
             }
-            string class_name = Interaction.InputBox("Zadajte nový názov triedy", "Zmena názvu", row.Cells[1].Value.ToString(), -1, -1);
+            string class_name = Interaction.InputBox("Zadajte nový názov triedy", "Zmena názvu", row.Cells[1].Value.ToString(), -1, -1).Trim();
             if (class_name.Length < 1)
             {
                 return;
@@ -201,7 +201,7 @@ namespace ProjectsManager
             {
                 return;
             }
-            string dep_name = Interaction.InputBox("Zadajte nový názov odboru", "Zmena názvu", row.Cells[1].Value.ToString(), -1, -1);
+            string dep_name = Interaction.InputBox("Zadajte nový názov odboru", "Zmena názvu", row.Cells[1].Value.ToString(), -1, -1).Trim();
             if (dep_name.Length < 1)
             {
                 return;

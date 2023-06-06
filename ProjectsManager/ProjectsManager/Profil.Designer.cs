@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.classLabel = new System.Windows.Forms.Label();
             this.oldPasswordBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.PasswordTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.UpdateButton = new FontAwesome.Sharp.IconButton();
             this.NameTextBox = new ProjectsManager.CustomComponents.CustomTextbox();
-            this.classLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -111,6 +111,16 @@
             this.panel3.Size = new System.Drawing.Size(714, 549);
             this.panel3.TabIndex = 19;
             // 
+            // classLabel
+            // 
+            this.classLabel.AutoSize = true;
+            this.classLabel.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.classLabel.Location = new System.Drawing.Point(561, 91);
+            this.classLabel.Name = "classLabel";
+            this.classLabel.Size = new System.Drawing.Size(67, 22);
+            this.classLabel.TabIndex = 26;
+            this.classLabel.Text = "Trieda";
+            // 
             // oldPasswordBox
             // 
             this.oldPasswordBox.BackColor = System.Drawing.Color.White;
@@ -131,6 +141,7 @@
             this.oldPasswordBox.TabIndex = 25;
             this.oldPasswordBox.Texts = "";
             this.oldPasswordBox.UnderlinedStyle = false;
+            this.oldPasswordBox._TextChanged += new System.EventHandler(this.oldPasswordBox__TextChanged);
             // 
             // label3
             // 
@@ -182,6 +193,7 @@
             this.ConfirmPasswordTextBox.TabIndex = 20;
             this.ConfirmPasswordTextBox.Texts = "";
             this.ConfirmPasswordTextBox.UnderlinedStyle = false;
+            this.ConfirmPasswordTextBox._TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox__TextChanged);
             // 
             // passwordStrengthLabel
             // 
@@ -325,16 +337,6 @@
             this.NameTextBox.TabIndex = 4;
             this.NameTextBox.Texts = "";
             this.NameTextBox.UnderlinedStyle = false;
-            // 
-            // classLabel
-            // 
-            this.classLabel.AutoSize = true;
-            this.classLabel.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.classLabel.Location = new System.Drawing.Point(561, 91);
-            this.classLabel.Name = "classLabel";
-            this.classLabel.Size = new System.Drawing.Size(67, 22);
-            this.classLabel.TabIndex = 26;
-            this.classLabel.Text = "Trieda";
             // 
             // Profil
             // 

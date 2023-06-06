@@ -81,6 +81,7 @@ namespace ProjectsManager
 
         private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            
             if (oldPasswordBox.Texts.Trim() == string.Empty && oldPasswordBox.PlaceholderText.Trim() != string.Empty)
             {
                 return;
@@ -105,7 +106,10 @@ namespace ProjectsManager
             if (ShowPasswordCheckBox.Checked)
             {
                 PasswordTextBox.PasswordChar = false;
-                ConfirmPasswordTextBox.PasswordChar = false;
+            }
+            else
+            {
+                PasswordTextBox.PasswordChar = true;
             }
             string password = PasswordTextBox.Texts.Trim();
             if (password == string.Empty)
@@ -209,6 +213,30 @@ namespace ProjectsManager
             }
             MessageBox.Show("Profil úspešne aktualizovaný");
             OnFormLoad();
+        }
+
+        private void oldPasswordBox__TextChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckBox.Checked)
+            {
+                oldPasswordBox.PasswordChar = false;
+            }
+            else
+            {
+                oldPasswordBox.PasswordChar = true;
+            }
+        }
+
+        private void ConfirmPasswordTextBox__TextChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckBox.Checked)
+            {
+                ConfirmPasswordTextBox.PasswordChar = false;
+            }
+            else
+            {
+                ConfirmPasswordTextBox.PasswordChar = true;
+            }
         }
     }
 }

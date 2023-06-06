@@ -100,9 +100,10 @@ namespace ProjectsManager
 
         private void forgetPasswordLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string email = Interaction.InputBox("Zadajte email, ktorým ste sa registrovali", "Obnova hesla", string.Empty, -1, -1);
+            string email = Interaction.InputBox("Zadajte email, ktorým ste sa registrovali", "Obnova hesla", string.Empty, -1, -1).Trim();
             if (email.Length < 1)
             {
+                MessageBox.Show("Email musí byť vyplnený!");
                 return;
             }
             RegistrationHandler handler = new RegistrationHandler();
@@ -111,8 +112,9 @@ namespace ProjectsManager
                 MessageBox.Show("Zadaný email neexsituje");
                 return;
             }
-            string query = $"SELECT user_password FROM users WHERE user_email = '{email}'";
+            string query = $"SELECT user_password FROM users WHERE user_email = @Email";
             MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+            cmd.Parameters.AddWithValue("@Email", email);
             MySqlDataReader reader = cmd.ExecuteReader();
             string password = "";
             while (reader.Read())
@@ -125,16 +127,23 @@ namespace ProjectsManager
             mail.From = new MailAddress("mario.lastovica228@gmail.com", "No reply"); 
             mail.Subject = "Obnova hesla pre portál SOŠ SPŠ IT KNM";
             mail.Body = "<h1>Obnova hesla</h1><br>" +
-                $"<p>Vaše heslo je: {password}<p>";  
+                $"<p>Vaše heslo je: <strong>{password}</strong><p>";  
             mail.IsBodyHtml = true;
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.UseDefaultCredentials = true;
-            smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof"); 
-            smtp.EnableSsl = true;
-            smtp.Send(mail);
+            try 
+            { 
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof"); 
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Email sa nepodarilo odoslať");
+                return;
+            }
         }
     }
 }

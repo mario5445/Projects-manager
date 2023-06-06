@@ -120,6 +120,7 @@
             this.passwordTextbox.TabIndex = 5;
             this.passwordTextbox.Texts = "";
             this.passwordTextbox.UnderlinedStyle = true;
+            this.passwordTextbox._TextChanged += new System.EventHandler(this.passwordTextbox__TextChanged);
             // 
             // passwordLabel
             // 
@@ -149,6 +150,7 @@
             this.confirmPasswordTextbox.TabIndex = 7;
             this.confirmPasswordTextbox.Texts = "";
             this.confirmPasswordTextbox.UnderlinedStyle = true;
+            this.confirmPasswordTextbox._TextChanged += new System.EventHandler(this.confirmPasswordTextbox__TextChanged);
             // 
             // confirmPasswordLabel
             // 

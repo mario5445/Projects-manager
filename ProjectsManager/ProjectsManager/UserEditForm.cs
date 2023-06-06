@@ -57,6 +57,7 @@ namespace ProjectsManager
                 nameTextbox.Texts = user_full_name;
                 emailTextbox.Texts = this.user_email;
                 passwordTextbox.Texts = password;
+                confirmPasswordTextbox.Texts = password;
                 if (user_class != 0)
                 {
                     classCombobox.SelectedIndex = user_class - 1;
@@ -89,6 +90,7 @@ namespace ProjectsManager
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+         
             if (passwordTextbox.PlaceholderText.Trim() != string.Empty && passwordTextbox.Texts.Trim() == string.Empty)
             {
                 return;
@@ -160,6 +162,30 @@ namespace ProjectsManager
             }
             MessageBox.Show("Užívateľ úspešne aktualizovaný");
             this.Close();
+        }
+
+        private void passwordTextbox__TextChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckbox.Checked)
+            {
+                passwordTextbox.PasswordChar = false;
+            }
+            else
+            {
+                passwordTextbox.PasswordChar = true;
+            }
+        }
+
+        private void confirmPasswordTextbox__TextChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckbox.Checked)
+            {
+               confirmPasswordTextbox.PasswordChar = false;
+            }
+            else
+            {
+                confirmPasswordTextbox.PasswordChar = true;
+            }
         }
     }
 }

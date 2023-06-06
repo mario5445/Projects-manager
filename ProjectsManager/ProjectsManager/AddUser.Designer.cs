@@ -40,8 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AddUserBtn = new FontAwesome.Sharp.IconButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.studentRadioButton = new System.Windows.Forms.RadioButton();
             this.teacherRadioButton = new System.Windows.Forms.RadioButton();
+            this.studentRadioButton = new System.Windows.Forms.RadioButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.classLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -104,6 +104,7 @@
             this.ConfirmPasswordTextBox.TabIndex = 17;
             this.ConfirmPasswordTextBox.Texts = "";
             this.ConfirmPasswordTextBox.UnderlinedStyle = false;
+            this.ConfirmPasswordTextBox._TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox__TextChanged);
             // 
             // ShowPasswordCheckBox
             // 
@@ -228,18 +229,6 @@
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             // 
-            // studentRadioButton
-            // 
-            this.studentRadioButton.AutoSize = true;
-            this.studentRadioButton.Font = new System.Drawing.Font("Cambria", 12F);
-            this.studentRadioButton.Location = new System.Drawing.Point(6, 33);
-            this.studentRadioButton.Name = "studentRadioButton";
-            this.studentRadioButton.Size = new System.Drawing.Size(80, 23);
-            this.studentRadioButton.TabIndex = 0;
-            this.studentRadioButton.TabStop = true;
-            this.studentRadioButton.Text = "Študent";
-            this.studentRadioButton.UseVisualStyleBackColor = true;
-            // 
             // teacherRadioButton
             // 
             this.teacherRadioButton.AutoSize = true;
@@ -251,6 +240,18 @@
             this.teacherRadioButton.TabStop = true;
             this.teacherRadioButton.Text = "Učiteľ";
             this.teacherRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // studentRadioButton
+            // 
+            this.studentRadioButton.AutoSize = true;
+            this.studentRadioButton.Font = new System.Drawing.Font("Cambria", 12F);
+            this.studentRadioButton.Location = new System.Drawing.Point(6, 33);
+            this.studentRadioButton.Name = "studentRadioButton";
+            this.studentRadioButton.Size = new System.Drawing.Size(80, 23);
+            this.studentRadioButton.TabIndex = 0;
+            this.studentRadioButton.TabStop = true;
+            this.studentRadioButton.Text = "Študent";
+            this.studentRadioButton.UseVisualStyleBackColor = true;
             // 
             // iconPictureBox1
             // 

@@ -47,6 +47,14 @@ namespace ProjectsManager
             if (ShowPasswordCheckBox.Checked)
             {
                 PasswordTextBox.PasswordChar = false;
+            }
+            else
+            {
+                PasswordTextBox.PasswordChar = true;
+            }
+            if (ShowPasswordCheckBox.Checked)
+            {
+                PasswordTextBox.PasswordChar = false;
                 ConfirmPasswordTextBox.PasswordChar = false;
             }
             string password = PasswordTextBox.Texts.Trim();
@@ -107,6 +115,7 @@ namespace ProjectsManager
 
         private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            
             if (PasswordTextBox.PlaceholderText.Trim() != string.Empty && PasswordTextBox.Texts.Trim() == string.Empty)
             {
                 return;
@@ -175,6 +184,18 @@ namespace ProjectsManager
                 handler.InsertTeacher(new User(name, email, password, "Učiteľ", user_class));
             }
             MessageBox.Show("Používateľ úspešne pridaný");
+        }
+
+        private void ConfirmPasswordTextBox__TextChanged(object sender, EventArgs e)
+        {
+            if (ShowPasswordCheckBox.Checked)
+            {
+                ConfirmPasswordTextBox.PasswordChar = false;
+            }
+            else
+            {
+                ConfirmPasswordTextBox.PasswordChar = true;
+            }
         }
     }
 }

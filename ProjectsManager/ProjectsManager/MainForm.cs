@@ -343,8 +343,8 @@ namespace ProjectsManager
             if (this.user_role == "Admin")
             {
                 btnMyProjects.Text = "Užívatelia";
-                btnMyProjects.IconChar = IconChar.User;
-                btntemporary.Text = "Pridať užívateľa";
+                btnMyProjects.IconChar = IconChar.UsersGear;
+                btntemporary.Text = "  Pridať užívateľa";
                 btntemporary.IconChar = IconChar.UserPlus;
                 btnSettings.Visible = true;
                 btnSettings.Enabled = true;
