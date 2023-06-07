@@ -172,9 +172,16 @@ namespace ProjectsManager
                 return;
             }
             if (NameTextBox.Texts.Trim() == string.Empty || EmailTextBox.Texts.Trim() == string.Empty || PasswordTextBox.Texts.Trim() == string.Empty || ConfirmPasswordTextBox.Texts.Trim() == string.Empty || oldPasswordBox.Texts.Trim() == string.Empty)
-            {  
-                MessageBox.Show("Vyplňte prosím všetky polia");
-                return;
+            {
+                if (PasswordTextBox.Texts.Trim() == string.Empty && oldPasswordBox.Texts.Trim() != string.Empty)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Vyplňte prosím všetky polia");
+                    return;
+                }
             }
             if (oldPasswordBox.Texts != this.user_password)
             {
@@ -185,7 +192,7 @@ namespace ProjectsManager
             }
             string name = NameTextBox.Texts.Trim();
             string email = EmailTextBox.Texts.Trim();
-            string password = ConfirmPasswordTextBox.Texts.Trim();
+            string password = PasswordTextBox.Texts.Trim() != string.Empty ? PasswordTextBox.Texts.Trim():oldPasswordBox.Texts.Trim();
             int user_class = ((ComboItem)classComboBox.SelectedItem).Value;
 
             if (email != this.user_email)
@@ -197,7 +204,7 @@ namespace ProjectsManager
                     return;
                 }
             }
-            if (ConfirmPasswordTextBox.Texts.Trim() != password)
+            if (ConfirmPasswordTextBox.Texts.Trim() != password && PasswordTextBox.Texts.Trim() != string.Empty)
             {
                 ConfirmPasswordTextBox.BorderColor = Color.Red;
                 return;

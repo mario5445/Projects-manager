@@ -122,7 +122,7 @@ namespace ProjectsManager
 
         private void AddDepartmentBtn_Click(object sender, EventArgs e)
         {
-            string dep_name = AddClassTextbox.Texts.Trim();
+            string dep_name = AddDepartmentTextbox.Texts.Trim();
             if (dep_name.Length >= 64)
             {
                 MessageBox.Show("Názov odboru je príliš dlhý");
