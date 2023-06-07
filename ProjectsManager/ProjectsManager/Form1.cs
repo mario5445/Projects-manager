@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using Microsoft.VisualBasic;
 using MySql.Data.MySqlClient;
+using System.Threading.Tasks;
 
 namespace ProjectsManager
 {
@@ -98,7 +99,7 @@ namespace ProjectsManager
             }
         }
 
-        private void forgetPasswordLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void forgetPasswordLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string email = Interaction.InputBox("Zadajte email, ktorým ste sa registrovali", "Obnova hesla", string.Empty, -1, -1).Trim();
             if (email.Length < 1)
@@ -125,24 +126,39 @@ namespace ProjectsManager
             MailMessage mail = new MailMessage();
             mail.To.Add(email);
             mail.From = new MailAddress("mario.lastovica228@gmail.com", "No reply"); 
-            mail.Subject = "Obnova hesla pre portál SOŠ SPŠ IT KNM";
+            mail.Subject = "Obnova hesla pre portál SOČ SPŠ IT KNM";
             mail.Body = "<h1>Obnova hesla</h1><br>" +
-                $"<p>Vaše heslo je: <strong>{password}</strong><p>";  
+                $"<p>Vaše heslo je: <strong>{password}</strong><p>" +
+                $"<p>Ak ste si tento email nevyžiadali, prosím nevšímajte si ho</p>";  
             mail.IsBodyHtml = true;
-            try 
-            { 
+            await Task.Run(() => SendMail(mail));
+        }
+
+        private async Task SendMail(MailMessage mail)
+        {
+            try
+            {
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.Port = 587;
                 smtp.UseDefaultCredentials = true;
-                smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof"); 
+                smtp.Credentials = new NetworkCredential("mario.lastovica228@gmail.com", "yvfdubojiekretof");
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Email sa nepodarilo odoslať");
                 return;
+            }
+        }
+
+
+        private void passwordTextbox__TextChanged(object sender, EventArgs e)
+        {
+            if (!checkBox1.Checked)
+            {
+                passwordTextbox.PasswordChar = true;
             }
         }
     }

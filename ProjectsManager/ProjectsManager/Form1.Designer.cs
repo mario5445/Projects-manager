@@ -38,9 +38,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.errorLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.forgetPasswordLabel = new System.Windows.Forms.LinkLabel();
             this.passwordTextbox = new ProjectsManager.CustomComponents.CustomTextbox();
             this.emailTextbox = new ProjectsManager.CustomComponents.CustomTextbox();
-            this.forgetPasswordLabel = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -159,6 +159,18 @@
             this.panel2.Size = new System.Drawing.Size(425, 450);
             this.panel2.TabIndex = 6;
             // 
+            // forgetPasswordLabel
+            // 
+            this.forgetPasswordLabel.AutoSize = true;
+            this.forgetPasswordLabel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.forgetPasswordLabel.Location = new System.Drawing.Point(13, 408);
+            this.forgetPasswordLabel.Name = "forgetPasswordLabel";
+            this.forgetPasswordLabel.Size = new System.Drawing.Size(133, 19);
+            this.forgetPasswordLabel.TabIndex = 3;
+            this.forgetPasswordLabel.TabStop = true;
+            this.forgetPasswordLabel.Text = "Zabudli ste heslo?";
+            this.forgetPasswordLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgetPasswordLabel_LinkClicked);
+            // 
             // passwordTextbox
             // 
             this.passwordTextbox.BackColor = System.Drawing.Color.White;
@@ -179,6 +191,7 @@
             this.passwordTextbox.TabIndex = 1;
             this.passwordTextbox.Texts = "";
             this.passwordTextbox.UnderlinedStyle = false;
+            this.passwordTextbox._TextChanged += new System.EventHandler(this.passwordTextbox__TextChanged);
             this.passwordTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordTextbox_KeyPress);
             // 
             // emailTextbox
@@ -201,18 +214,6 @@
             this.emailTextbox.TabIndex = 0;
             this.emailTextbox.Texts = "";
             this.emailTextbox.UnderlinedStyle = false;
-            // 
-            // forgetPasswordLabel
-            // 
-            this.forgetPasswordLabel.AutoSize = true;
-            this.forgetPasswordLabel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.forgetPasswordLabel.Location = new System.Drawing.Point(13, 408);
-            this.forgetPasswordLabel.Name = "forgetPasswordLabel";
-            this.forgetPasswordLabel.Size = new System.Drawing.Size(133, 19);
-            this.forgetPasswordLabel.TabIndex = 3;
-            this.forgetPasswordLabel.TabStop = true;
-            this.forgetPasswordLabel.Text = "Zabudli ste heslo?";
-            this.forgetPasswordLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgetPasswordLabel_LinkClicked);
             // 
             // Form1
             // 

@@ -66,7 +66,7 @@ namespace ProjectsManager
                     classLabel.Visible = false;
                     classLabel.Enabled = false;
                 }
-                int user_class = !dataReader.IsDBNull(4) ? dataReader.GetInt32("user_class") : 0;
+                int user_class = !dataReader.IsDBNull(4) ? dataReader.GetInt32("user_class") : 1;
                 NameTextBox.Texts = username;
                 EmailTextBox.Texts = this.user_email;
                 classComboBox.SelectedIndex = user_class - 1;
@@ -193,6 +193,7 @@ namespace ProjectsManager
             string name = NameTextBox.Texts.Trim();
             string email = EmailTextBox.Texts.Trim();
             string password = PasswordTextBox.Texts.Trim() != string.Empty ? PasswordTextBox.Texts.Trim():oldPasswordBox.Texts.Trim();
+           
             int user_class = ((ComboItem)classComboBox.SelectedItem).Value;
 
             if (email != this.user_email)
@@ -220,6 +221,8 @@ namespace ProjectsManager
             }
             MessageBox.Show("Profil úspešne aktualizovaný");
             OnFormLoad();
+            errorMessageLabel.Visible = false;
+            errorMessageLabel.Enabled = false;
         }
 
         private void oldPasswordBox__TextChanged(object sender, EventArgs e)
