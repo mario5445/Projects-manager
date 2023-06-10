@@ -10,7 +10,7 @@ namespace ProjectsManager
         #region Fields
         private static string connString = "SERVER=usa.vybrat.eu;PORT=3306;DATABASE=c71_database;UID=c71_admin;PASSWORD=Qw6hVp3T!"; // connection string
         //private static string connString = "SERVER=localhost;PORT=3306;DATABASE=skuska;UID=root;PASSWORD="; // connection string
-
+        //private static string connString = "SERVER=;PORT=3306;DATABASE=;UID=;PASSWORD="; // connection string -> template
 
         #endregion
 

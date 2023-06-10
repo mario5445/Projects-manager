@@ -184,6 +184,10 @@ namespace ProjectsManager
                 handler.InsertTeacher(new User(name, email, password, "Učiteľ", user_class));
             }
             MessageBox.Show("Používateľ úspešne pridaný");
+            EmailTextBox.Texts = "";
+            NameTextBox.Texts = "";
+            PasswordTextBox.Texts = "";
+            ConfirmPasswordTextBox.Texts = "";
         }
 
         private void ConfirmPasswordTextBox__TextChanged(object sender, EventArgs e)
@@ -196,6 +200,7 @@ namespace ProjectsManager
             {
                 ConfirmPasswordTextBox.PasswordChar = true;
             }
+            
         }
     }
 }

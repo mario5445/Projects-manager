@@ -308,7 +308,15 @@ namespace ProjectsManager
             }
             ProjectInfo projectInfo = new ProjectInfo(id, this.user_id, this.user_role);
             projectInfo.StartPosition = FormStartPosition.CenterScreen;
-            projectInfo.FormClosed += (d, k) => { LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects()); StyleDatagridview(); };
+            if (this.type1 == DashboardType.MyProjects)
+            {
+                projectInfo.FormClosed += (d, k) => { LoadDefaultDatagridview(gridviewHandler.GetDataReaderForUserProjects(this.user_id)); StyleDatagridview(); };
+            }
+            else
+            {
+                projectInfo.FormClosed += (d, k) => { LoadDefaultDatagridview(gridviewHandler.GetDataReaderOfProjects()); StyleDatagridview(); };
+            }
+            
             projectInfo.ShowDialog();
         }
 

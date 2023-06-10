@@ -51,6 +51,7 @@
             this.deleteAllUsersBtn = new FontAwesome.Sharp.IconButton();
             this.deleteAllProjectsBtn = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.deleteAllStudentsBtn = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.classesDatagridview)).BeginInit();
             this.panelDataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsDatagridview)).BeginInit();
@@ -335,6 +336,7 @@
             // 
             this.deleteAllClsBtn.BackColor = System.Drawing.Color.Maroon;
             this.deleteAllClsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteAllClsBtn.Enabled = false;
             this.deleteAllClsBtn.FlatAppearance.BorderSize = 0;
             this.deleteAllClsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllClsBtn.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
@@ -344,19 +346,21 @@
             this.deleteAllClsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteAllClsBtn.IconSize = 25;
             this.deleteAllClsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteAllClsBtn.Location = new System.Drawing.Point(678, 273);
+            this.deleteAllClsBtn.Location = new System.Drawing.Point(678, 228);
             this.deleteAllClsBtn.Name = "deleteAllClsBtn";
             this.deleteAllClsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.deleteAllClsBtn.Size = new System.Drawing.Size(270, 38);
             this.deleteAllClsBtn.TabIndex = 20;
             this.deleteAllClsBtn.Text = "Vymazať všetky triedy";
             this.deleteAllClsBtn.UseVisualStyleBackColor = false;
+            this.deleteAllClsBtn.Visible = false;
             this.deleteAllClsBtn.Click += new System.EventHandler(this.deleteAllClsBtn_Click);
             // 
             // deleteAllDepBtn
             // 
             this.deleteAllDepBtn.BackColor = System.Drawing.Color.Maroon;
             this.deleteAllDepBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteAllDepBtn.Enabled = false;
             this.deleteAllDepBtn.FlatAppearance.BorderSize = 0;
             this.deleteAllDepBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteAllDepBtn.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
@@ -366,35 +370,38 @@
             this.deleteAllDepBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteAllDepBtn.IconSize = 25;
             this.deleteAllDepBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteAllDepBtn.Location = new System.Drawing.Point(678, 353);
+            this.deleteAllDepBtn.Location = new System.Drawing.Point(678, 272);
             this.deleteAllDepBtn.Name = "deleteAllDepBtn";
             this.deleteAllDepBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.deleteAllDepBtn.Size = new System.Drawing.Size(270, 38);
             this.deleteAllDepBtn.TabIndex = 21;
             this.deleteAllDepBtn.Text = "Vymazať všetky odbory";
             this.deleteAllDepBtn.UseVisualStyleBackColor = false;
+            this.deleteAllDepBtn.Visible = false;
             this.deleteAllDepBtn.Click += new System.EventHandler(this.deleteAllDepBtn_Click);
             // 
             // deleteAllUsersBtn
             // 
             this.deleteAllUsersBtn.BackColor = System.Drawing.Color.Maroon;
             this.deleteAllUsersBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteAllUsersBtn.Enabled = false;
             this.deleteAllUsersBtn.FlatAppearance.BorderSize = 0;
             this.deleteAllUsersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteAllUsersBtn.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Bold);
+            this.deleteAllUsersBtn.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
             this.deleteAllUsersBtn.ForeColor = System.Drawing.Color.White;
             this.deleteAllUsersBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             this.deleteAllUsersBtn.IconColor = System.Drawing.Color.White;
             this.deleteAllUsersBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteAllUsersBtn.IconSize = 25;
             this.deleteAllUsersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteAllUsersBtn.Location = new System.Drawing.Point(678, 511);
+            this.deleteAllUsersBtn.Location = new System.Drawing.Point(677, 500);
             this.deleteAllUsersBtn.Name = "deleteAllUsersBtn";
             this.deleteAllUsersBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.deleteAllUsersBtn.Size = new System.Drawing.Size(270, 55);
+            this.deleteAllUsersBtn.Size = new System.Drawing.Size(270, 78);
             this.deleteAllUsersBtn.TabIndex = 22;
             this.deleteAllUsersBtn.Text = "Vymazať všetkých užívateľov";
             this.deleteAllUsersBtn.UseVisualStyleBackColor = false;
+            this.deleteAllUsersBtn.Visible = false;
             this.deleteAllUsersBtn.Click += new System.EventHandler(this.deleteAllUsersBtn_Click);
             // 
             // deleteAllProjectsBtn
@@ -410,10 +417,10 @@
             this.deleteAllProjectsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteAllProjectsBtn.IconSize = 25;
             this.deleteAllProjectsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteAllProjectsBtn.Location = new System.Drawing.Point(677, 434);
+            this.deleteAllProjectsBtn.Location = new System.Drawing.Point(678, 325);
             this.deleteAllProjectsBtn.Name = "deleteAllProjectsBtn";
             this.deleteAllProjectsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.deleteAllProjectsBtn.Size = new System.Drawing.Size(270, 38);
+            this.deleteAllProjectsBtn.Size = new System.Drawing.Size(270, 63);
             this.deleteAllProjectsBtn.TabIndex = 23;
             this.deleteAllProjectsBtn.Text = "Vymazať všetky projekty";
             this.deleteAllProjectsBtn.UseVisualStyleBackColor = false;
@@ -426,19 +433,42 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Gear;
             this.iconPictureBox1.IconColor = System.Drawing.Color.Indigo;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 220;
-            this.iconPictureBox1.Location = new System.Drawing.Point(718, 2);
+            this.iconPictureBox1.IconSize = 206;
+            this.iconPictureBox1.Location = new System.Drawing.Point(707, 2);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(220, 220);
+            this.iconPictureBox1.Size = new System.Drawing.Size(215, 206);
             this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.iconPictureBox1.TabIndex = 24;
             this.iconPictureBox1.TabStop = false;
+            // 
+            // deleteAllStudentsBtn
+            // 
+            this.deleteAllStudentsBtn.BackColor = System.Drawing.Color.Maroon;
+            this.deleteAllStudentsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteAllStudentsBtn.FlatAppearance.BorderSize = 0;
+            this.deleteAllStudentsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteAllStudentsBtn.Font = new System.Drawing.Font("Cambria", 11F, System.Drawing.FontStyle.Bold);
+            this.deleteAllStudentsBtn.ForeColor = System.Drawing.Color.White;
+            this.deleteAllStudentsBtn.IconChar = FontAwesome.Sharp.IconChar.Xmark;
+            this.deleteAllStudentsBtn.IconColor = System.Drawing.Color.White;
+            this.deleteAllStudentsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.deleteAllStudentsBtn.IconSize = 25;
+            this.deleteAllStudentsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteAllStudentsBtn.Location = new System.Drawing.Point(678, 394);
+            this.deleteAllStudentsBtn.Name = "deleteAllStudentsBtn";
+            this.deleteAllStudentsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.deleteAllStudentsBtn.Size = new System.Drawing.Size(270, 78);
+            this.deleteAllStudentsBtn.TabIndex = 25;
+            this.deleteAllStudentsBtn.Text = "Vymazať všetkých študentov";
+            this.deleteAllStudentsBtn.UseVisualStyleBackColor = false;
+            this.deleteAllStudentsBtn.Click += new System.EventHandler(this.deleteAllStudentsBtn_Click);
             // 
             // SettingsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(961, 599);
+            this.Controls.Add(this.deleteAllStudentsBtn);
             this.Controls.Add(this.deleteAllProjectsBtn);
             this.Controls.Add(this.deleteAllUsersBtn);
             this.Controls.Add(this.deleteAllDepBtn);
@@ -487,5 +517,6 @@
         private FontAwesome.Sharp.IconButton deleteAllUsersBtn;
         private FontAwesome.Sharp.IconButton deleteAllProjectsBtn;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconButton deleteAllStudentsBtn;
     }
 }

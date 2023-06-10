@@ -226,7 +226,7 @@ namespace ProjectsManager
             }
             string query = "START TRANSACTION; " +
                 "\r\nALTER TABLE classes AUTO_INCREMENT = 1; " +
-                "\r\nTRUNCATE TABLE classes; " +
+                "\r\nDELETE FROM classes; " +
                 "\r\nCOMMIT;";
             MySqlCommand cmd = new MySqlCommand(query, DB.connection);
             cmd.ExecuteNonQuery();
@@ -241,7 +241,7 @@ namespace ProjectsManager
             }
             string query = "START TRANSACTION; " +
                 "\r\nALTER TABLE departments AUTO_INCREMENT = 1; " +
-                "\r\nTRUNCATE TABLE departments; " +
+                "\r\nDELETE FROM departments; " +
                 "\r\nCOMMIT;";
             MySqlCommand cmd = new MySqlCommand(query, DB.connection);
             cmd.ExecuteNonQuery();
@@ -280,10 +280,34 @@ namespace ProjectsManager
             }
             string query = "START TRANSACTION; " +
                 "\r\nALTER TABLE projects AUTO_INCREMENT = 1; " +
-                "\r\nTRUNCATE TABLE projects; ";
+                "\r\nDELETE FROM projects; ";
             if (MessageBox.Show("Posledné varovanie pred vykonaním tohto kroku. Chcete ho skutočne vykonať? Aplikácia sa zavrie po vykonaní tohto kroku", "Potvrdenie", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 query += "\r\nROLLBACK;"; 
+                MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                query += "\r\nCOMMIT;";
+                MySqlCommand cmd = new MySqlCommand(query, DB.connection);
+                cmd.ExecuteNonQuery();
+                Application.Exit();
+            }
+        }
+
+        private void deleteAllStudentsBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Chcete skutočne vymazať všetkých študentov? TENTO KROK NIE JE MOŽNÉ VRÁTIŤ! PO TOMTO KROKU BUDÚ VYMAZANÉ AJ VŠETKY PROJEKTY, PRI KTORýH BOLI ŠTUDENTI PRIDELENÍ!!", "Vymazanie študentov", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                return;
+            }
+            string query = "START TRANSACTION; " +
+                "\r\nDELETE FROM projects WHERE project_student IS NOT NULL; " +
+                "\r\nDELETE FROM users WHERE user_role = 'Študent'; ";
+            if (MessageBox.Show("Posledné varovanie pred vykonaním tohto kroku. Chcete ho skutočne vykonať? Aplikácia sa zavrie po vykonaní tohto kroku", "Potvrdenie", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                query += "\r\nROLLBACK;";
                 MySqlCommand cmd = new MySqlCommand(query, DB.connection);
                 cmd.ExecuteNonQuery();
             }
